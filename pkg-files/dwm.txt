@@ -1,0 +1,11 @@
+feh
+rofi
+ttf-droid
+nerd-fonts
+sxhkd
+bluez
+bluez-utils
+pulseaudio-bluetooth
+pavucontrol
+sbc
+--END OF FILE--
