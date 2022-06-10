@@ -1,7 +1,7 @@
 alt + p
 	rofi -modi drun,run -show drun -show-icons
 alt + o
-	~/neoarch/scripts/etc/rofi-search.sh
+	~/ohmyarch/script/rofi-search.sh
 alt + shift + k
 	brillo -q -A 1
 alt + shift + j
@@ -10,4 +10,6 @@ alt + shift + w
 	amixer -D pulse sset Master 1%+
 alt + shift + s
 	amixer -D pulse sset Master 1%-
+alt + a
+	source ~/.xinitrc
 

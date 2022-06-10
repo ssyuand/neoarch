@@ -12,7 +12,6 @@ windows:
 font:
   normal:
     family: MonoLisa-Regular
-    #family: MonoLisa-Medium
     style: regular
   bold:
     family: MonoLisa-Bold
@@ -23,7 +22,7 @@ font:
   bold_italic:
     family: MonoLisa-Black
     style: Blod
-  size: 10.0
+  size: 9.2
   # Offset is the extra space around each character. offset.y can be thought of
   offset:
     x: 0
@@ -33,6 +32,7 @@ scrolling:
   history: 3000
   # scrollback is enabled (history > 0).
   multiplier: 3
+  faux_multiplier: 3
 cursor:
   # Cursor style
   style:  block
@@ -63,7 +63,8 @@ window:
 colors:
    # Default colors
   primary:
-    background: '#011627'
+    #background: '#011627'
+    background: '#1E1E1E'
     foreground: '#d6deeb'
 
   cursor:
@@ -95,10 +96,8 @@ colors:
     cyan:    '#7fdbca'
     white:   '#ffffff'
 key_bindings:
-   # New and close tab in tmux.
-  - { key: T,        mods: Control,       chars: "\x02\x63" }
-  - { key: Q,        mods: Control,       command: { program: "/sbin/tmux", args: ["kill-pane"] } }
-
+  - { key: PageUp,   mods: Control, action: ScrollPageUp,   mode: ~Alt }
+  - { key: PageDown, mods: Control, action: ScrollPageDown, mode: ~Alt }
   # program:... is $which tmux in ur pc
   - { key: Key1,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "1"] } }
   - { key: Key2,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "2"] } }
@@ -109,4 +108,3 @@ key_bindings:
   - { key: Key7,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "7"] } }
   - { key: Key8,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "8"] } }
   - { key: Key9,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "9"] } }
-  - { key: Key0,     mods: Control, command: { program: "/sbin/tmux", args: ["select-window", "-t", "10"] } }

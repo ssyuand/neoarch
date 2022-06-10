@@ -1,3 +1,4 @@
 brillo
 picom-jonaburg-git
+crow-translate
 --END OF FILE--

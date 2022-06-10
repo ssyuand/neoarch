@@ -48,6 +48,9 @@ echo "gitconfig"
 	cp ~/neoarch/dotfile/.gitconfig ~/
 echo "tmux"
 	cp ~/neoarch/dotfile/.tmux.conf ~/
+echo "nvchad"
+        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
+        cp ~/neoarch/dotfile/custom/ ~/.config/nvim/lua
 echo "rofi"
 	mkdir -p ~/.local/share/rofi/themes
 	cp ~/neoarch/dotfile/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi
@@ -73,9 +76,6 @@ echo "fcitx"
 	mkdir -p ~/.local/share/fcitx5/themes/
 	cp -r ~/library/fcitx5/Catppuccin ~/.local/share/fcitx5/themes
 	echo "Theme=Catppuccin" > ~/.config/fcitx5/conf/classicui.conf
-echo "packer"
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 elif [[ $DESKTOP_ENV == "kde" ]]; then
   cp -r ~/neoarch/configs/.config/* ~/.config/

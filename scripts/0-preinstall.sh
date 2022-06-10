@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 source $CONFIGS_DIR/setup.conf
-source $SCRIPTS_DIR/spinner.sh
 iso=$(curl -4 ifconfig.co/country-iso)
 rm /var/lib/pacman/db.lck
 pacman -Sy --noconfirm --needed
@@ -15,9 +14,9 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 sed -i 's/^#Color/Color/' /etc/pacman.conf
+sed -i 's/^#NoProgressBar/DisableDownloadTimeout/' /etc/pacman.conf
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-reflector --download-timeout 60 -a 48 -c $iso -l 20 --sort rate --save /etc/pacman.d/mirrorlist &
-spinner "performing long running task..."
+reflector  --download-timeout 60 -a 48 --protocol https -c $iso -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt &>/dev/null # Hiding error message if any
 echo -ne "
 -------------------------------------------------------------------------
@@ -126,8 +125,7 @@ echo -ne "
                     Arch Install on Main Drive
 -------------------------------------------------------------------------
 "
-pacstrap /mnt base base-devel linux linux-firmware neovim sudo archlinux-keyring btrfs-progs --noconfirm --needed &
-spinner "performing long running task..."
+pacstrap /mnt base base-devel linux linux-firmware neovim sudo archlinux-keyring btrfs-progs --noconfirm --needed
 cp -R ${SCRIPT_DIR} /mnt/root/neoarch
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 source $HOME/neoarch/configs/setup.conf
-source $SCRIPTS_DIR/spinner.sh
 
 # Add sudo no password rights
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -66,8 +65,7 @@ if [[ ! $DESKTOP_ENV == server ]]; then
   sed -n '/'END'/q;p' $HOME/neoarch/pkg-files/pacman-pkgs.txt | while read line
   do
     echo "INSTALLING: ${line}"
-    sudo pacman -S --noconfirm --needed ${line} &
-	spinner "Installing Base System Packages..."
+    sudo pacman -S --noconfirm --needed ${line}
   done
 fi
 #TODO if $DESKTOP_ENV == server then do everything u want

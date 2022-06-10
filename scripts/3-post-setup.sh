@@ -9,22 +9,24 @@ echo -ne "
                     Enabling Essential Services
 -------------------------------------------------------------------------
 "
-echo " ufw enabled"
+echo "ufw enabled"
 	systemctl enable ufw
 	ufw default deny
 	ufw enable
-echo " iwd enabled"
+echo "iwd enabled"
 	systemctl enable iwd
-echo " ssh enabled"
+echo "ssh enabled"
 	systemctl enable sshd
-echo "  DHCP disabled"
+echo "DHCP disabled"
 	systemctl disable dhcpcd.service
-echo "  NetworkManager enabled"
+echo "NetworkManager enabled"
 	systemctl enable NetworkManager.service
-echo "  Bluetooth enabled"
+echo "Bluetooth enabled"
 	systemctl enable bluetooth
-echo "  Avahi enabled"
+echo "Avahi enabled"
 	systemctl enable avahi-daemon.service
+
+sed -i 's/^#AutoEnable=false/AutoEnable=true' /etc/bluetooth/main.conf
 
 if [[ "${FS}" == "luks" || "${FS}" == "btrfs" ]]; then
 echo -ne "
