@@ -49,8 +49,8 @@ echo "gitconfig"
 echo "tmux"
 	cp ~/neoarch/dotfile/.tmux.conf ~/
 echo "nvchad"
-        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
-        cp ~/neoarch/dotfile/custom/ ~/.config/nvim/lua
+        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+        cp -r ~/neoarch/dotfile/custom/ ~/.config/nvim/lua
 echo "rofi"
 	mkdir -p ~/.local/share/rofi/themes
 	cp ~/neoarch/dotfile/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi

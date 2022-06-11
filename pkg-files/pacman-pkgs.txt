@@ -8,12 +8,15 @@ fcitx5-chewing
 fcitx5-config-qt
 firefox
 iwd
+jdk17-openjdk
 git
 htop
+npm
 neovim
 netctl
 openssh
 tmux
+tar
 trash-cli
 ufw
 usbutils
