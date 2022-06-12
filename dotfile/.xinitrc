@@ -10,8 +10,8 @@ else
 	setxkbmap -layout us -option ctrl:swapcaps
 fi
 
-~/ohmyarch/script/wallpaper.sh &
-~/ohmyarch/script/statusbar.sh &
+~/neoarch/scripts/etc/wallpaper.sh &
+~/neoarch/scripts/etc/statusbar.sh &
 picom --experimental-backends -b
 
 # typing speed
