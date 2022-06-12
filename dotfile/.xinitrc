@@ -10,16 +10,14 @@ else
 	setxkbmap -layout us -option ctrl:swapcaps
 fi
 
-~/neoarch/scripts/etc/wallpaper.sh &
-~/neoarch/scripts/etc/statusbar.sh &
+~/ohmyarch/script/wallpaper.sh &
+~/ohmyarch/script/statusbar.sh &
 picom --experimental-backends -b
 
 # typing speed
-xset r rate 166 50
-
+xset r rate 266 26
 # brightness minimum
 brillo -c -S 1
-
 /usr/bin/pactl load-module module-bluetooth-discover
 exec sxhkd &
 exec fcitx5 &

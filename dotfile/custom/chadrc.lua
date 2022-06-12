@@ -1,4 +1,4 @@
-local M = {}
+M = {}
 M.options = {
    -- chadrc
    -- load your options here or load module with options1
@@ -38,10 +38,10 @@ M.plugins = {
    remove = {
      "folke/which-key.nvim",
      "ray-x/lsp_signature.nvim",
-     "max397574/better-escape.nvim",
      "kyazdani42/nvim-tree.lua",
      "akinsho/bufferline.nvim",
      "NvChad/nvterm",
+     "SmiteshP/nvim-gps",
    },
 
    options = {
