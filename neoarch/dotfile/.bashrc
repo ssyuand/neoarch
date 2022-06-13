@@ -20,9 +20,6 @@ shopt -s autocd
 alias ..='cd ..'
 alias s='sudo'
 alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
 alias rm='trash-put'
 alias duck='du -cks * | sort -n -r | head -n 20'
 alias duak='du -ak | sort -n -r | head -n 20'
@@ -33,7 +30,7 @@ alias c=cd_fzf
 alias v=vim_fzf
 alias ip='ip --color=auto'
 shopt -s histappend                      # append to history, don't overwrite it
-PS1='\[\e[0;31m\]\u\[\e[0;31m\]@\[\e[0;34m\]\H \[\e[0;32m\]\W \[\e[0m\]$ \[\e[0m\]'
+PS1="\[\e[0;31m\]\u@\[\e[m\e[0;34m\]\h\[\e[m \e[0;32m\]\W \$ \[\e[m\]"
 
 cd_fzf (){
 if [[ $@ != "" ]]; then

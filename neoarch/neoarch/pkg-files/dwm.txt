@@ -1,0 +1,13 @@
+bluez
+bluez-utils
+feh
+libreoffice
+nerd-fonts
+pavucontrol
+pulseaudio-bluetooth
+rofi
+sbc
+sxhkd
+ttf-droid
+vlc
+--END OF FILE--
