@@ -8,7 +8,6 @@ vim.keymap.set('v', '<S-Down>', ":m '>+1<CR>gv=gv") -- Moving block up
 vim.keymap.set('v', '<S-up>', ":m '<-2<CR>gv=gv") -- Moving block down
 
 M.general = {
-
    n = {
       [";"] = {":", opts = {}},
       ["<S-Down>"] = {"<cmd> m .+1 <CR>==", opts = {}},

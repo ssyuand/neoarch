@@ -24,16 +24,6 @@ M.plugins = {
      ["nvim-treesitter/nvim-treesitter"] = {
         ensure_installed = { "java", "javascript", "python", "c", "cpp", "bash", "lua", "json"},
      },
-     ["hrsh7th/nvim-cmp"] = {
-        window = {
-           completion = {
-              --border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'}
-           }
-         },
-        experimental = {
-            ghost_text = true,
-        }
-     }
    },
    remove = {
      "folke/which-key.nvim",
@@ -42,6 +32,8 @@ M.plugins = {
      "akinsho/bufferline.nvim",
      "NvChad/nvterm",
      "SmiteshP/nvim-gps",
+     "lewis6991/gitsigns.nvim",
+     "nvim-telescope/telescope.nvim"
    },
 
    options = {

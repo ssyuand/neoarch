@@ -1,3 +1,4 @@
+libreoffice
 feh
 rofi
 ttf-droid

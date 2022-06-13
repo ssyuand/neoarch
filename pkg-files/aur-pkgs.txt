@@ -1,4 +1,5 @@
 brillo
-picom-jonaburg-git
 crow-translate
+picom-jonaburg-git
+visual-studio-code-bin
 --END OF FILE--

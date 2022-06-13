@@ -56,9 +56,9 @@ echo "rofi"
 	cp ~/neoarch/dotfile/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi
 echo "feh"
 	mkdir ~/Desktop
-	tar -xvf ~/neoarch/dotfile/neon.tar -C ~/Desktop
+	tar -xvf ~/neoarch/dotfile/wallpaper.tar -C ~/Desktop
 echo "touchpad"
-	cp ~/neoarch/dotfile/30-touchpad.conf /etc/X11/xorg.conf.d
+	sudo cp ~/neoarch/dotfile/30-touchpad.conf /etc/X11/xorg.conf.d
 echo "dwm"
 	git clone https://git.suckless.org/dwm ~/library/dwm
 	cp ~/neoarch/dotfile/config.h ~/library/dwm/config.h

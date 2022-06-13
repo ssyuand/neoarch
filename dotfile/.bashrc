@@ -64,8 +64,6 @@ if [[ "$-" =~ "i" ]]; then  # Check if it is an interactive terminal
     bind -x '"\C-r": hist_fzf'
 fi
 
-
-
 hist_fzf (){
     output=$( history | fzf --tac | sed -r 's/\[[^]]*\]//g' | sed -r 's/ *[0-9]*\*? *//')
     READLINE_LINE=${output#*$'\t'}
