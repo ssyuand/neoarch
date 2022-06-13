@@ -1,4 +1,0 @@
-brillo
-picom-jonaburg-git
-visual-studio-code-bin
---END OF FILE--

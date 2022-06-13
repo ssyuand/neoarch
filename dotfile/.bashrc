@@ -1,7 +1,3 @@
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];then
-	startx
-fi
-[[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"'
 export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
@@ -72,4 +68,7 @@ hist_fzf (){
     READLINE_LINE=${output#*$'\t'}
     READLINE_POINT=0x7fffffff
 }
-
+if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+	startx
+fi
+[[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"'
