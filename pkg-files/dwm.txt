@@ -1,12 +1,13 @@
-libreoffice
-feh
-rofi
-ttf-droid
-nerd-fonts
-sxhkd
 bluez
 bluez-utils
-pulseaudio-bluetooth
+feh
+libreoffice
+nerd-fonts
 pavucontrol
+pulseaudio-bluetooth
+rofi
 sbc
+sxhkd
+ttf-droid
+vlc
 --END OF FILE--

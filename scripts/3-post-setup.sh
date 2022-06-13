@@ -9,10 +9,6 @@ echo -ne "
                     Enabling Essential Services
 -------------------------------------------------------------------------
 "
-echo "ufw enabled"
-	systemctl enable ufw
-	ufw default deny
-	ufw enable
 echo "iwd enabled"
 	systemctl enable iwd
 echo "ssh enabled"
@@ -36,13 +32,12 @@ echo -ne "
 "
 
 SNAPPER_CONF="$HOME/neoarch/configs/etc/snapper/configs/root"
-mkdir -p /etc/snapper/configs/
-cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
+sudo mkdir -p /etc/snapper/configs/
+sudo cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
 
 SNAPPER_CONF_D="$HOME/neoarch/configs/etc/conf.d/snapper"
-mkdir -p /etc/conf.d/
-cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
-
+sudo mkdir -p /etc/conf.d/
+sudo cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
 fi
 
 echo -ne "
@@ -56,9 +51,6 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-
-#rm -r $HOME/neoarch
-#rm -r /home/$USERNAME/neoarch
 
 # Replace in the same state
 cd $pwd

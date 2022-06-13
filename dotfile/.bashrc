@@ -1,4 +1,4 @@
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty2 ]];then
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];then
 	startx
 fi
 [[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"'
