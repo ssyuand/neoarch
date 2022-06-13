@@ -35,7 +35,8 @@ echo -ne "
 "
 export PATH=$PATH:~/.local/bin
 if [[ $DESKTOP_ENV == "dwm" ]]; then
-
+echo "case-insensitive"
+        echo 'set completion-ignore-case On' | sudo tee -a /etc/inputrc
 echo "bash"
 	cp ~/neoarch/dotfile/.bashrc ~/
 echo "fonts"
