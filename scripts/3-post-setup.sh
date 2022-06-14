@@ -23,7 +23,7 @@ echo "Avahi enabled"
 	systemctl enable avahi-daemon.service
 
 echo "Auto Enable Bluetooth"
-sed -i -e 's/^#AutoEnable=false/AutoEnable=true/g' /etc/bluetooth/main.conf
+        sed -i -e 's/^#AutoEnable=false/AutoEnable=true/g' /etc/bluetooth/main.conf
 
 
 #if [[ "${FS}" == "luks" || "${FS}" == "btrfs" ]]; then
@@ -34,12 +34,12 @@ sed -i -e 's/^#AutoEnable=false/AutoEnable=true/g' /etc/bluetooth/main.conf
 #"
 #
 #SNAPPER_CONF="$HOME/etc/snapper/configs/root"
-#sudo mkdir -p /etc/snapper/configs/
-#sudo cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
+#mkdir -p /etc/snapper/configs/
+#cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
 #
 #SNAPPER_CONF_D="$HOME/etc/conf.d/snapper"
-#sudo mkdir -p /etc/conf.d/
-#sudo cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
+#mkdir -p /etc/conf.d/
+#cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
 #fi
 
 echo -ne "
