@@ -20,6 +20,7 @@ npm
 openssh
 scrot
 simplescreenrecorder
+sof-firmware
 sudo
 tar
 tmux
