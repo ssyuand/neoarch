@@ -31,13 +31,13 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 
-SNAPPER_CONF="$HOME/neoarch/configs/etc/snapper/configs/root"
-mkdir -p /etc/snapper/configs/
-cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
+SNAPPER_CONF="$HOME/etc/snapper/configs/root"
+sudo mkdir -p /etc/snapper/configs/
+sudo cp -rfv ${SNAPPER_CONF} /etc/snapper/configs/
 
-SNAPPER_CONF_D="$HOME/neoarch/configs/etc/conf.d/snapper"
-mkdir -p /etc/conf.d/
-cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
+SNAPPER_CONF_D="$HOME/etc/conf.d/snapper"
+sudo mkdir -p /etc/conf.d/
+sudo cp -rfv ${SNAPPER_CONF_D} /etc/conf.d/
 fi
 
 echo -ne "
