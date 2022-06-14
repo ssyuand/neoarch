@@ -1,0 +1,54 @@
+[H[J[3JPlease enter your username: syuan
+Please enter your password: 
+Please repeat your password: 
+
+Passwords do not match. Please try again. 
+
+Please enter your password: 
+Please repeat your password: 
+[?2004hPlease enter your hostname: ouch
+[?2004l[H[J[3JPlease select your desired Desktop Enviroment:
+
+
+
+
+
+[6n[6n[?25l[3;1H  [7m dwm [27m[3;61H   xfce [3;121H   server [7;1H
+[?25h[H[J[3J
+
+
+
+[6n[6n[?25l[2;1H  [7m /dev/sda|14.4G [27m[3;1H   /dev/nvme0n1|476.9G [2;1H   /dev/sda|14.4G [3;1H  [7m /dev/nvme0n1|476.9G [27m[5;1H
+[?25h
+/dev/nvme0n1 selected 
+
+
+Is this an ssd? yes/no:
+
+
+
+
+[6n[6n[?25l[12;1H  [7m Yes [27m[13;1H   No [15;1H
+[?25h[H[J[3J
+Please Select your file system for both boot and root
+
+
+
+
+
+
+[6n[6n[?25l[4;1H  [7m luks [27m[5;1H   btrfs [6;1H   ext4 [7;1H   exit [9;1H
+[?25hPlease enter your luks password: 
+Please repeat your luks password: 
+[H[J[3J  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    12  100    12    0     0     48      0 --:--:-- --:--:-- --:--:--    48100    12  100    12    0     0     48      0 --:--:-- --:--:-- --:--:--    48
+
+System detected your timezone to be 'Asia/Taipei' 
+Is this correct?
+
+
+
+
+[6n[6n[?25l[8;1H  [7m Yes [27m[9;1H   No [11;1H
+[?25hAsia/Taipei set as timezone

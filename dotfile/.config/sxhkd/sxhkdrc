@@ -3,9 +3,9 @@ alt + p
 alt + o
     ~/neoarch/scripts/etc/rofi-search.sh
 alt + shift + k
-    brillo -q -A 1
+    ~/neoarch/scripts/etc/bdown.sh
 alt + shift + j
-    brillo -q -U 1
+    ~/neoarch/scripts/etc/bup.sh
 alt + a
     source ~/.xinitrc
 alt + shift + s
