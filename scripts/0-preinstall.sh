@@ -110,8 +110,14 @@ elif [[ "${FS}" == "luks" ]]; then
 fi
 
 # mount target
-mkdir -p /mnt/boot/efi
-mount -t vfat -L EFIBOOT /mnt/boot/
+if [[ $BOOTLOADER == "systemd-boot" ]]; then
+ mkdir -p /mnt/boot/efi
+ mount -t vfat -L EFIBOOT /mnt/boot/
+fi
+if [[ $BOOTLOADER == "grub" ]]; then
+ mkdir -p /mnt/boot/
+ mount /dev/sda1 /mnt/boot
+fi
 
 #set fonts
 mkdir -p /mnt/usr/share/fonts
