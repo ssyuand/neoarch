@@ -10,7 +10,7 @@ setfont ter-v22b
 timedatectl set-ntp true
 
 if [[ $BOOTLOADER == "grub" ]]; then
-    pacman -S --noconfirm --needed grub
+    pacman -S --noconfirm --needed grub grub-btrfs
 fi
 
 echo -ne "
@@ -148,7 +148,7 @@ if [[ $BOOTLOADER == "grub" ]]; then
     if [[ ! -d "/sys/firmware/efi" ]]; then
         grub-install --boot-directory=/mnt/boot ${DISK}
     else
-        pacstrap /mnt efibootmgr grub --noconfirm --needed
+        pacstrap /mnt efibootmgr grub grub-btrfs --noconfirm --needed
     fi
 fi
 if [[ $BOOTLOADER == "systemd-boot" ]]; then
