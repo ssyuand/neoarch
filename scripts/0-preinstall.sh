@@ -130,6 +130,7 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 pacstrap /mnt base base-devel linux linux-firmware neovim sudo archlinux-keyring btrfs-progs --noconfirm --needed
+cp -R ${SCRIPT_DIR} /mnt/root/neoarch
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
 genfstab -L /mnt >> /mnt/etc/fstab
