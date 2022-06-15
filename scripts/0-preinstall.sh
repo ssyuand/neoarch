@@ -10,7 +10,7 @@ setfont ter-v22b
 timedatectl set-ntp true
 
 if [[ $BOOTLOADER == "grub" ]]; then
-    pacman -S --noconfirm --needed  grub
+    pacman -S --noconfirm --needed grub
 fi
 
 echo -ne "
