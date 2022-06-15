@@ -21,7 +21,7 @@ echo -ne "
 sed -i 's/^#Color/Color/' /etc/pacman.conf
 sed -i 's/^#NoProgressBar/DisableDownloadTimeout/' /etc/pacman.conf
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
-reflector  --download-timeout 120 -a 48 --protocol https -c $iso -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+reflector  --download-timeout 5 -a 48 --protocol https -c $iso -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 mkdir /mnt &>/dev/null # Hiding error message if any
 echo -ne "
 -------------------------------------------------------------------------
