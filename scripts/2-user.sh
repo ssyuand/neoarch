@@ -9,7 +9,7 @@ rm /var/lib/pacman/db.lck
 sed -n '/'END'/q;p' ~/neoarch/pkg-files/${DESKTOP_ENV}.txt | while read line
 do
   echo "INSTALLING: ${line}"
-  sudo pacman -S --noconfirm --needed ${line}
+  sudo pacman -Sy --noconfirm --needed ${line}
 done
 
 echo -ne "

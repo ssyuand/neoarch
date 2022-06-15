@@ -149,7 +149,7 @@ if [[ $BOOTLOADER == "grub" ]]; then
     if [[ ! -d "/sys/firmware/efi" ]]; then
         grub-install --boot-directory=/mnt/boot ${DISK}
     else
-        pacstrap /mnt efibootmgr --noconfirm --needed
+        pacstrap /mnt efibootmgr grub --noconfirm --needed
     fi
 fi
 if [[ $BOOTLOADER == "systemd-boot" ]]; then

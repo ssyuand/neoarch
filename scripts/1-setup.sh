@@ -10,7 +10,7 @@ echo -ne "
                     Network Setup 
 -------------------------------------------------------------------------
 "
-pacman -S --noconfirm --needed netctl networkmanager dhclient
+pacman -Sy --noconfirm --needed netctl networkmanager dhclient
 systemctl enable --now NetworkManager
 echo -ne "
 -------------------------------------------------------------------------
@@ -33,7 +33,7 @@ sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Sy --noconfirm --needed
+pacman -S --noconfirm --needed
 
 nc=$(grep -c ^processor /proc/cpuinfo)
 echo -ne "

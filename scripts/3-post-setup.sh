@@ -1,5 +1,5 @@
+#!/usr/bin/env bash
 source ${HOME}/neoarch/configs/setup.conf
-
 echo -ne "
 -------------------------------------------------------------------------
                Creating Grub/systemd-boot Boot Menu
