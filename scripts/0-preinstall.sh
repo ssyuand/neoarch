@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 source $CONFIGS_DIR/setup.conf
 iso=$(curl -4 ifconfig.co/country-iso)
-rm /var/lib/pacman/db.lck
 pacman -Sy --noconfirm --needed
 pacman -S --noconfirm archlinux-keyring #update keyrings to latest to prevent packages failing to install
 pacman -S --noconfirm --needed pacman-contrib terminus-font
