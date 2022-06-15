@@ -160,6 +160,13 @@ done
 read -rep "Please enter your hostname: " nameofmachine
 set_option NAME_OF_MACHINE $nameofmachine
 }
+bootloader () {
+  echo -ne "Please select your bootloader:\n"
+  options=(grub systemd-boot)
+  select_option $? 2 "${options[@]}"
+  bootloader=${options[$?]}
+  set_option BOOTLOADER $bootloader
+}
 desktopenv () {
   # Let the user choose Desktop Enviroment from predefined list
   echo -ne "Please select your desired Desktop Enviroment:\n"
@@ -234,6 +241,8 @@ clear
 desktopenv
 clear
 diskpart
+clear
+bootloader
 clear
 filesystem
 clear

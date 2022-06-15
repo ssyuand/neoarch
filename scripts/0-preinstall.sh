@@ -8,6 +8,11 @@ pacman -S --noconfirm --needed pacman-contrib terminus-font
 pacman -S --noconfirm --needed reflector rsync
 setfont ter-v22b
 timedatectl set-ntp true
+
+if [[ $BOOTLOADER == "grub" ]]; then
+    pacman -S --noconfirm --needed  grub
+fi
+
 echo -ne "
 -------------------------------------------------------------------------
                     Setting up $iso mirrors for faster downloads
@@ -140,16 +145,18 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 source $CONFIGS_DIR/setup.conf
-#if [[ ! -d "/sys/firmware/efi" ]]; then
-#    grub-install --boot-directory=/mnt/boot ${DISK}
-#else
-#    pacstrap /mnt efibootmgr --noconfirm --needed
-#fi
-# systemd
-bootctl install --esp-path /mnt/boot
-printf "default arch\ntimeout 0" > /mnt/boot/loader/loader.conf
-printf "title ouch\nlinux /vmlinuz-linux\ninitrd /initramfs-linux.img\noptions cryptdevice=UUID=$ENCRYPTED_PARTITION_UUID:ROOT rootflags=subvol=@ root=/dev/mapper/ROOT rw" > /mnt/boot/loader/entries/arch.conf
-
+if [[ $BOOTLOADER == "grub" ]]; then
+    if [[ ! -d "/sys/firmware/efi" ]]; then
+        grub-install --boot-directory=/mnt/boot ${DISK}
+    else
+        pacstrap /mnt efibootmgr --noconfirm --needed
+    fi
+fi
+if [[ $BOOTLOADER == "systemd-boot" ]]; then
+    bootctl install --esp-path /mnt/boot
+    printf "default arch\ntimeout 0" > /mnt/boot/loader/loader.conf
+    printf "title ouch\nlinux /vmlinuz-linux\ninitrd /initramfs-linux.img\noptions cryptdevice=UUID=$ENCRYPTED_PARTITION_UUID:ROOT rootflags=subvol=@ root=/dev/mapper/ROOT rw" > /mnt/boot/loader/entries/arch.conf
+fi
 echo -ne "
 -------------------------------------------------------------------------
                     SYSTEM READY FOR 1-setup.sh
