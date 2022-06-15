@@ -14,7 +14,6 @@ export HISTFILE=~/.bash_history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -s autocd
 alias ..='cd ..'
-alias s='sudo'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"

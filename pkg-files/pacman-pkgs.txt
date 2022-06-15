@@ -1,5 +1,6 @@
 alacritty
 bat
+boost-libs
 chromium
 crot
 dhcpcd
@@ -20,6 +21,7 @@ npm
 openssh
 scrot
 simplescreenrecorder
+snapper
 sof-firmware
 sudo
 tar

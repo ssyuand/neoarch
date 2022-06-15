@@ -36,37 +36,37 @@ echo -ne "
 export PATH=$PATH:~/.local/bin
 if [[ $DESKTOP_ENV == "dwm" ]]; then
 echo "netctl"
-        sudo cp ~/neoarch/dotfile/wlan0 /etc/netctl
+        sudo cp ~/neoarch/configs/wlan0 /etc/netctl
         sudo netctl enable wlan0
 echo "case-insensitive"
         echo 'set completion-ignore-case On' | sudo tee -a /etc/inputrc
 echo "bash"
-	cp ~/neoarch/dotfile/.bashrc ~/
+	cp ~/neoarch/configs/.bashrc ~/
 echo "fonts"
-	tar -xvf ~/neoarch/dotfile/font.tar -C /usr/share/fonts
+	tar -xvf ~/neoarch/configs/etc/font.tar -C /usr/share/fonts
 echo "config"
-	cp -r ~/neoarch/dotfile/.config ~/
+	cp -r ~/neoarch/configs/.config ~/
 echo "xinitrc"
-	cp ~/neoarch/dotfile/.xinitrc ~/
+	cp ~/neoarch/configs/.xinitrc ~/
 echo "gitconfig"
-	cp ~/neoarch/dotfile/.gitconfig ~/
+	cp ~/neoarch/configs/.gitconfig ~/
 echo "tmux"
-	cp ~/neoarch/dotfile/.tmux.conf ~/
+	cp ~/neoarch/configs/.tmux.conf ~/
 echo "nvchad"
         git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-        cp -r ~/neoarch/dotfile/custom/ ~/.config/nvim/lua
+        cp -r ~/neoarch/configs/custom/ ~/.config/nvim/lua
 echo "rofi"
 	mkdir -p ~/.local/share/rofi/themes
-	cp ~/neoarch/dotfile/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi
+	cp ~/neoarch/configs/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi
 echo "feh"
 	mkdir ~/Desktop
-	tar -xvf ~/neoarch/dotfile/wallpaper.tar -C ~/Desktop
+	tar -xvf ~/neoarch/configs/etc/wallpaper.tar -C ~/Desktop
 echo "touchpad"
-	sudo cp ~/neoarch/dotfile/30-touchpad.conf /etc/X11/xorg.conf.d
+	sudo cp ~/neoarch/configs/30-touchpad.conf /etc/X11/xorg.conf.d
 echo "dwm"
 	git clone https://git.suckless.org/dwm ~/library/dwm
-	cp ~/neoarch/dotfile/config.h ~/library/dwm/config.h
-	cp ~/neoarch/dotfile/patch/* ~/library/dwm
+	cp ~/neoarch/configs/config.h ~/library/dwm/config.h
+	cp ~/neoarch/configs/patch/* ~/library/dwm
 	cd ~/library/dwm
 echo "patch"
 	patch -p1 < ru_fib_gap.diff

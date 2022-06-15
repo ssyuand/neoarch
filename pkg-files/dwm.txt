@@ -6,6 +6,7 @@ libreoffice
 nerd-fonts
 pavucontrol
 pulseaudio-bluetooth
+python-pip
 rofi
 sbc
 sxhkd
