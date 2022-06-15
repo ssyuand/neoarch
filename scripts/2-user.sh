@@ -5,11 +5,11 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 source $HOME/neoarch/configs/setup.conf
-rm /var/lib/pacman/db.lck
+sudo pacman -Sy --noconfirm --needed
 sed -n '/'END'/q;p' ~/neoarch/pkg-files/${DESKTOP_ENV}.txt | while read line
 do
   echo "INSTALLING: ${line}"
-  sudo pacman -Sy --noconfirm --needed ${line}
+  sudo pacman -S --noconfirm --needed ${line}
 done
 
 echo -ne "
@@ -43,7 +43,7 @@ echo "case-insensitive"
 echo "bash"
 	cp ~/neoarch/configs/.bashrc ~/
 echo "fonts"
-	tar -xvf ~/neoarch/configs/etc/font.tar -C /usr/share/fonts
+	sudo tar -xvf ~/neoarch/configs/etc/font.tar -C /usr/share/fonts
 echo "config"
 	cp -r ~/neoarch/configs/.config ~/
 echo "xinitrc"

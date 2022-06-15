@@ -33,7 +33,7 @@ sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -S --noconfirm --needed
+pacman -Sy --noconfirm --needed
 
 nc=$(grep -c ^processor /proc/cpuinfo)
 echo -ne "
