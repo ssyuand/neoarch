@@ -13,7 +13,10 @@ fi
 
 if [[ $BOOTLOADER == "grub" ]]; then
     if [[ -d "/sys/firmware/efi" ]]; then
+        echo "grub install !!!"
         grub-install --efi-directory=/boot ${DISK}
+        # if still have bug use down and delete up
+        #grub-install --target=x86_64-efi --efi-directory=/mnt/boot ${DISK}
     fi
 # set kernel parameter for decrypting the drive
 if [[ "${FS}" == "luks" ]]; then

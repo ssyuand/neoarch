@@ -121,7 +121,7 @@ if [ $(whoami) = "root"  ]; then
     echo "$USERNAME:$PASSWORD" | chpasswd
     echo "$USERNAME password set"
 
-	cp -R $HOME/neoarch /home/$USERNAME/
+    cp -R $HOME/neoarch /home/$USERNAME/
     chown -R $USERNAME: /home/$USERNAME/neoarch
     echo "neoarch copied to home directory"
 

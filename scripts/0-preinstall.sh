@@ -147,6 +147,7 @@ source $CONFIGS_DIR/setup.conf
 if [[ $BOOTLOADER == "grub" ]]; then
     if [[ ! -d "/sys/firmware/efi" ]]; then
         grub-install --boot-directory=/mnt/boot ${DISK}
+    # TODO delete this else if still have bugger
     else
         pacstrap /mnt efibootmgr grub grub-btrfs --noconfirm --needed
     fi

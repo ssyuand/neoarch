@@ -13,7 +13,8 @@ set +a
 	  ( arch-chroot /mnt /usr/bin/runuser -u $USERNAME -- /home/$USERNAME/neoarch/scripts/2-user.sh )|& tee 2-user.log
         fi
 	( arch-chroot /mnt /bin/bash $HOME/neoarch/scripts/3-post-setup.sh )|& tee 3-post-setup.log
-	cp -R ${SCRIPT_DIR} /mnt/root/neoarch
+        cp -v *.log /mnt/home/$USERNAME
+
 
 
 
