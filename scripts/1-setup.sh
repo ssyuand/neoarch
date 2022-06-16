@@ -134,6 +134,16 @@ if [[ ${FS} == "luks" ]]; then
 # making mkinitcpio with linux kernel
     mkinitcpio -p linux
 fi
+# root env
+echo "config"
+	cp -r ~/neoarch/configs/.config ~/
+
+echo "nvchad for root"
+        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+        mkdir .config || cp -r ~/neoarch/configs/custom/ ~/.config/nvim/lua
+echo "bash"
+	cp ~/neoarch/configs/.bashrc ~/
+
 echo -ne "
 -------------------------------------------------------------------------
                     SYSTEM READY FOR 2-user.sh
