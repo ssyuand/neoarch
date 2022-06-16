@@ -113,16 +113,25 @@ if [ $(whoami) = "root"  ]; then
     useradd -m -G wheel,libvirt -s /bin/bash $USERNAME 
     echo "$USERNAME created, home directory created, added to wheel and libvirt group, default shell set to /bin/bash"
 
-# use chpasswd to enter $USERNAME:$password
-    echo "$USERNAME:$PASSWORD" | chpasswd
-    echo "$USERNAME password set"
-
-    cp -R $HOME/neoarch /home/$USERNAME/
-    chown -R $USERNAME: /home/$USERNAME/neoarch
-    echo "neoarch copied to home directory"
-
-# enter $NAME_OF_MACHINE to /etc/hostname
-	echo $NAME_OF_MACHINE > /etc/hostname
+	# use chpasswd to enter $USERNAME:$password
+	    echo "$USERNAME:$PASSWORD" | chpasswd
+	    echo "$USERNAME password set"
+	
+	    cp -R $HOME/neoarch /home/$USERNAME/
+	    chown -R $USERNAME: /home/$USERNAME/neoarch
+	    echo "neoarch copied to home directory"
+	
+	# enter $NAME_OF_MACHINE to /etc/hostname
+		echo $NAME_OF_MACHINE > /etc/hostname
+	# root env
+	echo "config for root"
+		cp -r $HOME/neoarch/configs/.config $HOME/
+	
+	echo "nvchad for root"
+	        git clone https://github.com/NvChad/NvChad $HOME/.config/nvim --depth 1
+	        cp -r ~/neoarch/configs/custom/ $HOME/.config/nvim/lua
+	echo "bash"
+		cp $HOME/neoarch/configs/.bashrc $HOME/
 else
 	echo "You are already a user proceed with aur installs"
 fi
@@ -134,15 +143,6 @@ if [[ ${FS} == "luks" ]]; then
 # making mkinitcpio with linux kernel
     mkinitcpio -p linux
 fi
-# root env
-echo "config"
-	cp -r ~/neoarch/configs/.config ~/
-
-echo "nvchad for root"
-        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-        mkdir .config || cp -r ~/neoarch/configs/custom/ ~/.config/nvim/lua
-echo "bash"
-	cp ~/neoarch/configs/.bashrc ~/
 
 echo -ne "
 -------------------------------------------------------------------------
