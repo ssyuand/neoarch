@@ -2,7 +2,6 @@ alacritty
 bat
 boost-libs
 chromium
-crot
 dhcpcd
 fcitx5
 fcitx5-chewing

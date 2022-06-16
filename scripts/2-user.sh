@@ -80,18 +80,6 @@ echo "fcitx"
 	cp -r ~/library/fcitx5/Catppuccin ~/.local/share/fcitx5/themes
 	echo "Theme=Catppuccin" > ~/.config/fcitx5/conf/classicui.conf
 
-elif [[ $DESKTOP_ENV == "kde" ]]; then
-  cp -r ~/neoarch/configs/.config/* ~/.config/
-  pip install konsave
-  konsave -i ~/neoarch/configs/kde.knsv
-  sleep 1
-  konsave -a kde
-elif [[ $DESKTOP_ENV == "openbox" ]]; then
-  cd ~
-  git clone https://github.com/stojshic/dotfiles-openbox
-  ./dotfiles-openbox/install-titus.sh
-fi
-
 echo -ne "
 -------------------------------------------------------------------------
                     SYSTEM READY FOR 3-post-setup.sh

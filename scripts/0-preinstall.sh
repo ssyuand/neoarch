@@ -113,10 +113,6 @@ fi
 mkdir -p /mnt/boot/efi
 mount -t vfat -L EFIBOOT /mnt/boot/
 
-#set fonts
-mkdir -p /mnt/usr/share/fonts
-tar -xvf ~/neoarch/dotfile/font.tar -C /mnt/usr/share/fonts
-
 if ! grep -qs '/mnt' /proc/mounts; then
     echo "Drive is not mounted can not continue"
     echo "Rebooting in 3 Seconds ..." && sleep 1
