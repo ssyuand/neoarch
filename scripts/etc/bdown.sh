@@ -1,2 +1,2 @@
 #!/bin/bash
-pkexec /usr/bin/brillo -A 2
+pkexec /usr/bin/brillo -A 0.1
