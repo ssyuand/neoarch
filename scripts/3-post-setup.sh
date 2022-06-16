@@ -11,8 +11,8 @@ if [[ $BOOTLOADER == "systemd-boot" ]]; then
     fi
 fi
 
+# set kernel parameter for decrypting the drive
 if [[ $BOOTLOADER == "grub" ]]; then
-    # set kernel parameter for decrypting the drive
     if [[ "${FS}" == "luks" ]]; then
     #sed -i "s%GRUB_CMDLINE_LINUX=\"%GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT root=/dev/mapper/ROOT %g" /etc/default/grub
     #sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${root_uuid}:cryptlvm rootfstype=${FS}\"/'" /etc/default/grub
@@ -28,10 +28,10 @@ else
     sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"rootfstype=${FS}\"/'" /etc/default/grub
     grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
 fi
-
-echo -e "Updating grub..."
-grub-mkconfig -o /boot/grub/grub.cfg
-echo -e "All set!"
+if [[ $BOOTLOADER == "grub" ]]; then
+    echo -e "Updating grub..."
+    grub-mkconfig -o /boot/grub/grub.cfg
+    echo -e "All set!"
 fi
 
 echo -ne "
