@@ -198,7 +198,7 @@ while true; do
 
   if [ "$luks_password" = "$luks_password2" ]; then
     set_option LUKS_PASSWORD $luks_password
-    set_option FS btrfs
+    set_option FS luks
     break
   else
     echo -e "\nPasswords do not match. Please try again. \n"
