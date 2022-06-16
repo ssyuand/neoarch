@@ -9,7 +9,7 @@ setfont ter-v22b
 timedatectl set-ntp true
 
 if [[ $BOOTLOADER == "grub" ]]; then
-    pacman -S --noconfirm --needed grub grub-btrfs
+    pacman -S --noconfirm --needed grub
 fi
 
 echo -ne "
@@ -110,14 +110,8 @@ elif [[ "${FS}" == "luks" ]]; then
 fi
 
 # mount target
-if [[ $BOOTLOADER == "systemd-boot" ]]; then
- mkdir -p /mnt/boot/efi
- mount -t vfat -L EFIBOOT /mnt/boot/
-fi
-if [[ $BOOTLOADER == "grub" ]]; then
- mkdir -p /mnt/boot/
- mount /dev/sda1 /mnt/boot
-fi
+mkdir -p /mnt/boot/efi
+mount -t vfat -L EFIBOOT /mnt/boot/
 
 #set fonts
 mkdir -p /mnt/usr/share/fonts
@@ -151,11 +145,9 @@ echo -ne "
 "
 source $CONFIGS_DIR/setup.conf
 if [[ $BOOTLOADER == "grub" ]]; then
+    pacstrap /mnt efibootmgr grub --noconfirm --needed
     if [[ ! -d "/sys/firmware/efi" ]]; then
         grub-install --boot-directory=/mnt/boot ${DISK}
-    # TODO delete this else if still have bugger
-    else
-        pacstrap /mnt efibootmgr grub grub-btrfs --noconfirm --needed
     fi
 fi
 if [[ $BOOTLOADER == "systemd-boot" ]]; then

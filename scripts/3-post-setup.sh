@@ -7,23 +7,20 @@ echo -ne "
 "
 if [[ $BOOTLOADER == "systemd-boot" ]]; then
     if [[ -d "/sys/firmware/efi" ]]; then
-    	bootctl install --esp-path /mnt/boot
+    	bootctl install --esp-path /boot
+    	#bootctl install --esp-path /mnt/boot
     fi
 fi
 
 if [[ $BOOTLOADER == "grub" ]]; then
     if [[ -d "/sys/firmware/efi" ]]; then
         echo "grub install !!!"
-        grub-install --efi-directory=/boot ${DISK}
-        # if still have bug use down and delete up
-        #grub-install --target=x86_64-efi --efi-directory=/mnt/boot ${DISK}
+        grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
     fi
 # set kernel parameter for decrypting the drive
 if [[ "${FS}" == "luks" ]]; then
-    sed -i "s%GRUB_CMDLINE_LINUX_DEFAULT=\"%GRUB_CMDLINE_LINUX_DEFAULT=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT root=/dev/mapper/ROOT %g" /etc/default/grub
+    sed -i "s%GRUB_CMDLINE_LINUX=\"%GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT root=/dev/mapper/ROOT %g" /etc/default/grub
 fi
-# set kernel parameter for adding splash screen
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& splash /' /etc/default/grub
 
 echo -e "Updating grub..."
 grub-mkconfig -o /boot/grub/grub.cfg
