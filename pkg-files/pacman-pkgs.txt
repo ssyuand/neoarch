@@ -27,7 +27,6 @@ sudo
 tar
 tmux
 trash-cli
-ufw
 unrar
 unzip
 usbutils
