@@ -111,22 +111,6 @@ select_option() {
 
     return $(( $active_col + $active_row * $colmax ))
 }
-drivessd () {
-echo -ne "
-Is this an ssd? yes/no:
-"
-
-options=("Yes" "No")
-select_option $? 1 "${options[@]}"
-
-case ${options[$?]} in
-    y|Y|yes|Yes|YES)
-    set_option MOUNT_OPTIONS "noatime,compress=zstd,ssd,commit=120";;
-    n|N|no|NO|No)
-    set_option MOUNT_OPTIONS "noatime,compress=zstd,commit=120";;
-    *) echo "Wrong option. Try again";drivessd;;
-esac
-}
 diskpart () {
 PS3='
 Select the disk to install on: '
@@ -137,7 +121,7 @@ disk=${options[$?]%|*}
 
 echo -e "\n${disk%|*} selected \n"
     set_option DISK ${disk%|*}
-drivessd
+set_option MOUNT_OPTIONS "noatime,compress=zstd,ssd,commit=120";;
 }
 userinfo () {
 read -p "Please enter your username: " username

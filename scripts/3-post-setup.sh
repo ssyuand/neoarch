@@ -19,9 +19,6 @@ if [[ $BOOTLOADER == "grub" ]]; then
         echo "decrypting..."
         sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT rootfstype=btrfs\"/" /etc/default/grub
         sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
-    else
-        sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"rootfstype=${FS}\"/'" /etc/default/grub
-        grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
     fi
     echo -e "Updating grub..."
     grub-mkconfig -o /boot/grub/grub.cfg
