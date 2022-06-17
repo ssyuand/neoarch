@@ -63,7 +63,7 @@ if [[ "$-" =~ "i" ]]; then  # Check if it is an interactive terminal
 fi
 
 hist_fzf (){
-    history -a; history -r;
+    history -r;
     output=$( history | fzf --tac | sed -r 's/\[[^]]*\]//g' | sed -r 's/ *[0-9]*\*? *//')
     READLINE_LINE=${output#*$'\t'}
     READLINE_POINT=0x7fffffff
