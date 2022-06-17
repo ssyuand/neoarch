@@ -79,7 +79,7 @@ echo "fcitx"
 	mkdir -p ~/.local/share/fcitx5/themes/
 	cp -r ~/library/fcitx5/Catppuccin ~/.local/share/fcitx5/themes
 	echo "Theme=Catppuccin" > ~/.config/fcitx5/conf/classicui.conf
-
+fi
 echo -ne "
 -------------------------------------------------------------------------
                     SYSTEM READY FOR 3-post-setup.sh
