@@ -13,22 +13,16 @@ fi
 
 # set kernel parameter for decrypting the drive
 if [[ $BOOTLOADER == "grub" ]]; then
-    if [[ "${FS}" == "luks" ]]; then
-    #sed -i "s%GRUB_CMDLINE_LINUX=\"%GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT root=/dev/mapper/ROOT %g" /etc/default/grub
-    #sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${root_uuid}:cryptlvm rootfstype=${FS}\"/'" /etc/default/grub
-    sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT rootfstype=${FS}\"/" /etc/default/grub
-    sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
-    fi
-elif [[ -d "/sys/firmware/efi" ]]; then
     echo "grub install !!!"
-    # maybe ${DISk} not working
-    #grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck ${DISK}
     grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
-else
-    sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"rootfstype=${FS}\"/'" /etc/default/grub
-    grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
-fi
-if [[ $BOOTLOADER == "grub" ]]; then
+    if [[ "${FS}" == "luks" ]]; then
+        echo "decrypting..."
+        sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT rootfstype=btrfs\"/" /etc/default/grub
+        sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
+    else
+        sed -i "'s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"rootfstype=${FS}\"/'" /etc/default/grub
+        grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
+    fi
     echo -e "Updating grub..."
     grub-mkconfig -o /boot/grub/grub.cfg
     echo -e "All set!"
