@@ -1,6 +1,5 @@
 brillo
 nvim-packer-git
 picom-jonaburg-git
-snapper
 visual-studio-code-bin
 --END OF FILE--
