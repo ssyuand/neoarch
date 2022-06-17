@@ -19,6 +19,7 @@ neovim
 netctl
 npm
 openssh
+snapper
 scrot
 simplescreenrecorder
 snapper
