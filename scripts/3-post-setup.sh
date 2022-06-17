@@ -13,7 +13,7 @@ fi
 
 # set kernel parameter for decrypting the drive
 if [[ $BOOTLOADER == "grub" ]]; then
-    echo "grub install !!!"
+    echo "grub install..." 
     grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
     if [[ "${FS}" == "luks" ]]; then
         echo "decrypting..."

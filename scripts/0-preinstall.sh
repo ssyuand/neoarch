@@ -87,8 +87,10 @@ fi
 
 if [[ "${FS}" == "btrfs" ]]; then
     mkfs.vfat -F32 -n "EFIBOOT" ${partition1}
-    mkfs.btrfs -L ROOT ${partition2} -f
-    mount -t btrfs ${partition2} /mnt
+    #mkfs.btrfs -L ROOT ${partition2} -f
+    mkfs.btrfs -f -L ROOT /dev/mapper/ROOT
+    #mount -t btrfs ${partition2} /mnt
+    mount -t btrfs /dev/mapper/ROOT /mnt
     subvolumesetup
 elif [[ "${FS}" == "ext4" ]]; then
     mkfs.vfat -F32 -n "EFIBOOT" ${partition1}

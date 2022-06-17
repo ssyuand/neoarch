@@ -121,7 +121,7 @@ disk=${options[$?]%|*}
 
 echo -e "\n${disk%|*} selected \n"
     set_option DISK ${disk%|*}
-set_option MOUNT_OPTIONS "noatime,compress=zstd,ssd,commit=120";;
+set_option MOUNT_OPTIONS "noatime,compress=zstd,ssd,commit=120"
 }
 userinfo () {
 read -p "Please enter your username: " username
