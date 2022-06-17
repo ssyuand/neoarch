@@ -10,6 +10,7 @@ fcitx5-gtk
 fd
 firefox
 fzf
+grub-btrfs
 git
 htop
 iwd
