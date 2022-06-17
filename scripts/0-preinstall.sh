@@ -85,18 +85,11 @@ else
     partition2=${DISK}2
 fi
 
-if [[ "${FS}" == "btrfs" ]]; then
-    mkfs.vfat -F32 -n "EFIBOOT" ${partition1}
-    #mkfs.btrfs -L ROOT ${partition2} -f
-    mkfs.btrfs -f -L ROOT /dev/mapper/ROOT
-    #mount -t btrfs ${partition2} /mnt
-    mount -t btrfs /dev/mapper/ROOT /mnt
-    subvolumesetup
-elif [[ "${FS}" == "ext4" ]]; then
+if [[ "${FS}" == "ext4" ]]; then
     mkfs.vfat -F32 -n "EFIBOOT" ${partition1}
     mkfs.ext4 -L ROOT ${partition2}
     mount -t ext4 ${partition2} /mnt
-elif [[ "${FS}" == "luks" ]]; then
+elif [[ "${FS}" == "btrfs" ]]; then
     mkfs.vfat -F32 -n "EFIBOOT" ${partition1}
 # enter luks password to cryptsetup and format root partition
     echo -n "${LUKS_PASSWORD}" | cryptsetup -q -y -v luksFormat ${partition2} -
@@ -112,16 +105,9 @@ elif [[ "${FS}" == "luks" ]]; then
 fi
 
 # mount target
-mkdir -p /mnt/boot/efi
+mkdir -p /mnt/boot/
 mount -t vfat -L EFIBOOT /mnt/boot/
 
-if ! grep -qs '/mnt' /proc/mounts; then
-    echo "Drive is not mounted can not continue"
-    echo "Rebooting in 3 Seconds ..." && sleep 1
-    echo "Rebooting in 2 Seconds ..." && sleep 1
-    echo "Rebooting in 1 Second ..." && sleep 1
-    reboot now
-fi
 echo -ne "
 -------------------------------------------------------------------------
                     Arch Install on Main Drive

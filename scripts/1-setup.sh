@@ -135,7 +135,7 @@ if [ $(whoami) = "root"  ]; then
 else
 	echo "You are already a user proceed with aur installs"
 fi
-if [[ ${FS} == "luks" ]]; then
+if [[ ${FS} == "btrfs" ]]; then
 # Making sure to edit mkinitcpio conf if luks is selected
 # add encrypt in mkinitcpio.conf before filesystems in hooks
     sed -i 's/filesystems/encrypt filesystems/g' /etc/mkinitcpio.conf

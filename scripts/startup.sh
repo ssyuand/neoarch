@@ -168,7 +168,7 @@ filesystem () {
 echo -ne "
 Please Select your file system for both boot and root
 "
-options=("luks" "btrfs" "ext4")
+options=("btrfs" "ext4")
 select_option $? 1 "${options[@]}"
 
 case $? in
@@ -182,15 +182,14 @@ while true; do
 
   if [ "$luks_password" = "$luks_password2" ]; then
     set_option LUKS_PASSWORD $luks_password
-    set_option FS luks
+    set_option FS btrfs
     break
   else
     echo -e "\nPasswords do not match. Please try again. \n"
   fi
 done
 ;;
-1) set_option FS btrfs;;
-2) set_option FS ext4;;
+1) set_option FS ext4;;
 *) echo "Wrong option please select again"; filesystem;;
 esac
 }
@@ -200,22 +199,6 @@ time_zone="$(curl --fail http://ip-api.com/line?fields=timezone)"
 echo -ne "
 System detected your timezone to be '$time_zone' \n"
 set_option TIMEZONE $time_zone
-#echo -ne "Is this correct?
-#" 
-#options=("Yes" "No")
-#select_option $? 1 "${options[@]}"
-#
-#case ${options[$?]} in
-#    y|Y|yes|Yes|YES)
-#    echo "${time_zone} set as timezone"
-#    set_option TIMEZONE $time_zone;;
-#    n|N|no|NO|No)
-#    echo "Please enter your desired timezone e.g. Europe/London :" 
-#    read new_timezone
-#    echo "${new_timezone} set as timezone"
-#    set_option TIMEZONE $new_timezone;;
-#    *) echo "Wrong option. Try again";timezone;;
-#esac
 }
 
 

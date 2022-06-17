@@ -15,9 +15,9 @@ fi
 if [[ $BOOTLOADER == "grub" ]]; then
     echo "grub install..." 
     grub-install --debug --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
-    if [[ "${FS}" == "luks" ]]; then
+    if [[ "${FS}" == "btrfs" ]]; then
         echo "decrypting..."
-        sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT rootfstype=btrfs\"/" /etc/default/grub
+        sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT rootfstype=${FS}\"/" /etc/default/grub
         sed -i "s/#GRUB_ENABLE_CRYPTODISK=y/GRUB_ENABLE_CRYPTODISK=y/" /etc/default/grub
     fi
     echo -e "Updating grub..."
