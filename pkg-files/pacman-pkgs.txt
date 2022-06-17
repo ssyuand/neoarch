@@ -9,7 +9,6 @@ fcitx5-config-qt
 fcitx5-gtk
 fd
 fzf
-grub-btrfs
 git
 htop
 iwd
@@ -18,10 +17,8 @@ neovim
 netctl
 npm
 openssh
-snapper
 scrot
 simplescreenrecorder
-snapper
 sof-firmware
 sudo
 tar
