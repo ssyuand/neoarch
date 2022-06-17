@@ -11,14 +11,14 @@ export HISTSIZE=-1                         # unlimited
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -s autocd
 alias ..='cd ..'
+alias sp='sudo pacman'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
 alias gp="git push"
-alias rm='trash-put'
+alias rm="trash-put"
 alias duck='du -cks * | sort -n -r | head -n 20'
 alias duak='du -ak | sort -n -r | head -n 20'
 alias l='ls -A -S -CF --color=auto'
@@ -63,6 +63,7 @@ if [[ "$-" =~ "i" ]]; then  # Check if it is an interactive terminal
 fi
 
 hist_fzf (){
+    history -a; history -r;
     output=$( history | fzf --tac | sed -r 's/\[[^]]*\]//g' | sed -r 's/ *[0-9]*\*? *//')
     READLINE_LINE=${output#*$'\t'}
     READLINE_POINT=0x7fffffff
@@ -70,4 +71,4 @@ hist_fzf (){
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
 	startx
 fi
-[[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"'
+[[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"; history -a; history -r;'

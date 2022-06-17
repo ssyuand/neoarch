@@ -147,7 +147,7 @@ set_option NAME_OF_MACHINE $nameofmachine
 bootloader () {
   echo -ne "Please select your bootloader:\n"
   options=(grub systemd-boot)
-  select_option $? 2 "${options[@]}"
+  select_option $? 1 "${options[@]}"
   bootloader=${options[$?]}
   set_option BOOTLOADER $bootloader
 }
@@ -155,7 +155,7 @@ desktopenv () {
   # Let the user choose Desktop Enviroment from predefined list
   echo -ne "Please select your desired Desktop Enviroment:\n"
   options=(dwm server)
-  select_option $? 4 "${options[@]}"
+  select_option $? 1 "${options[@]}"
   desktop_env=${options[$?]}
   set_option DESKTOP_ENV $desktop_env
   if [[ ! $desktop_env == server ]]; then
