@@ -2,8 +2,6 @@ export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-export JAVA_HOME='/usr/lib/jvm/java-17-openjdk/'
-export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
 export FZF_DEFAULT_COMMAND='fd . / --type f --color=never --hidden --absolute-path'
 export FZF_DEFAULT_OPTS='--multi --no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 export HISTFILESIZE=-1                     # unlimited
@@ -14,16 +12,13 @@ export HISTFILE=~/.bash_history
 shopt -s autocd
 alias ..='cd ..'
 alias sp='sudo pacman'
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
+alias g="git"
 alias rm="trash-put"
 alias duck='du -cks * | sort -n -r | head -n 20'
 alias duak='du -ak | sort -n -r | head -n 20'
 alias l='ls -A -S -CF --color=auto'
 alias ls='ls -A -n -LSh --color=always'
-alias fd="fd . $HOME --absolute-path --type d . --color=never --hidden | fzf --preview 'tree -CL 2 {}'"
+alias fd="fd . / --absolute-path --type d --hidden | fzf --preview 'tree -CL 2 {}'"
 alias c=cd_fzf
 alias v=vim_fzf
 alias ip='ip --color=auto'

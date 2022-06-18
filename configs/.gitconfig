@@ -1,3 +1,12 @@
+[core]
+    editor = "/sbin/nvim"
 [user]
-	name = ssyuand
-	email = ssyuand@gmail.com
+    name = ssyuand
+    email = ssyuand@gmail.com
+[alias]
+    a = add
+    c = commit -m
+    f = reflog
+    l = log --oneline --graph
+    ls = log --graph --pretty=format:\"%h %an %ad %s %ar\" --date=format:'%Y-%m-%d %H:%M'
+    s = status

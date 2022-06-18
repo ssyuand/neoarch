@@ -53,7 +53,7 @@ M.plugins = {
 M.ui = {
    hl_override = {
       LineNr = { fg = "#252525" },
-      CursorLineNr = { fg = "#c6c6c6"}
+      CursorLineNr = { fg = "#c6c6c6"},
    },
    changed_themes = {},
    theme_toggle = { "vsc_dark", "vsc_light" },

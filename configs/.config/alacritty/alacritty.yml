@@ -72,7 +72,7 @@ colors:
     cursor: '#33FF33'
 
   selection:
-    background: '#ffff33'
+    background: '#ccd784'
 
    # Normal colors
   normal:
