@@ -8,7 +8,6 @@ pavucontrol
 pulseaudio-bluetooth
 python-pip
 rofi
-
 sbc
 sxhkd
 ttf-droid
