@@ -1,12 +1,17 @@
 [core]
-    editor = "/sbin/nvim"
+        editor = "/sbin/nvim"
 [user]
-    name = ssyuand
-    email = ssyuand@gmail.com
+        name = ssyuand
+        email = ssyuand@gmail.com
 [alias]
-    a = add
-    c = commit -m
-    f = reflog
-    l = log --oneline --graph
-    ls = log --graph --pretty=format:\"%h %an %ad %s %ar\" --date=format:'%Y-%m-%d %H:%M'
-    s = status
+        br = branch
+        ck = checkout
+        com = commit -m
+        ll = log --graph --pretty=format:\"%C(yellow)%h %C(green)%ad (%ar) %C(bold blue)%an%Creset: %s\" --date=format:'%Y-%m-%d %H:%M'
+        ls = log --graph --pretty=format:\"%C(yellow)%h %C(bold blue)%an %C(green)(%ar)%Creset: %s\" --date=format:'%Y-%m-%d %H:%M'
+        rf = reflog
+        st = status
+        sh = show
+[gc]
+	reflogExpire = never
+	reflogExpireUnreachable = never

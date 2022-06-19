@@ -12,7 +12,6 @@ export HISTFILE=~/.bash_history
 shopt -s autocd
 alias ..='cd ..'
 alias sp='sudo pacman'
-alias g="git"
 alias rm="trash-put"
 alias duck='du -cks * | sort -n -r | head -n 20'
 alias duak='du -ak | sort -n -r | head -n 20'

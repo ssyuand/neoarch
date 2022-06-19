@@ -24,6 +24,13 @@ M.plugins = {
      ["nvim-treesitter/nvim-treesitter"] = {
         ensure_installed = { "java", "javascript", "python", "c", "cpp", "bash", "lua", "json"},
      },
+     ["lewis6991/gitsigns.nvim"] = {
+         signs = {
+            delete       = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+            topdelete    = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+            changedelete = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+         },
+     }
    },
    remove = {
      "folke/which-key.nvim",
@@ -54,6 +61,7 @@ M.ui = {
    hl_override = {
       LineNr = { fg = "#252525" },
       CursorLineNr = { fg = "#c6c6c6"},
+      GitSignsAddLn = { fg = "c6c6c6"}
    },
    changed_themes = {},
    theme_toggle = { "vsc_dark", "vsc_light" },
