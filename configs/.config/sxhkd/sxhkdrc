@@ -1,12 +1,12 @@
-alt + p
+super + p
     rofi -modi drun,run -show drun -show-icons
-alt + o
+super + o
     ~/neoarch/scripts/etc/rofi-search.sh
-alt + shift + k
+super + shift + k
     ~/neoarch/scripts/etc/bdown.sh
-alt + shift + j
+super + shift + j
     ~/neoarch/scripts/etc/bup.sh
-alt + a
+super + a
     source ~/.xinitrc
-alt + shift + s
+super + shift + s
     scrot -s
