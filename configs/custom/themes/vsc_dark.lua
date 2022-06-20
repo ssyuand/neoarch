@@ -18,7 +18,7 @@ M.base_30 = {
    line = "#2e2e2e", -- for lines like vertsplit
    green = "#B5CEA8",
    vibrant_green = "#bfd8b2",
-   blue = "#6A9955",  -- git add line hi '|'
+   blue = "#569CD6",
    nord_blue = "#60a6e0",
    yellow = "#D7BA7D",
    sun = "#e1c487",
@@ -68,7 +68,7 @@ M.base_16 = {
    base0A = "#569CD6", --fuc name
    base0B = "#BD8D78",
    base0C = "#9CDCFE",
-   base0D = "#DCDCAA",
+   base0D = "#DCDCAA", -- include
    base0E = "#C586C0",
    base0F = "#CE9178",
 }
@@ -107,8 +107,8 @@ M.polish_hl = {
    TSCharacter = { -- char ex. 'c'
       fg = M.base_30.vscOrange
    },
-   TSConstMacro = { --#include in c
-      fg = M.base_30.vscBlueGreen
+   TSConstMacro = { --#define in c
+      fg = M.base_30.pink
    },
    TSFloat = { --true/false
       fg = M.base_30.vscLightGreen
