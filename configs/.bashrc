@@ -2,6 +2,8 @@ export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
+export JAVA_HOME='/usr/lib/jvm/java-17-openjdk/' # need it to change version
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
 export FZF_DEFAULT_COMMAND='fd . / --type f --color=never --hidden --absolute-path'
 export FZF_DEFAULT_OPTS='--multi --no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 export HISTFILESIZE=-1                     # unlimited
