@@ -2,4 +2,5 @@ brillo
 nvim-packer-git
 picom-jonaburg-git
 visual-studio-code-bin
+git-delta
 --END OF FILE--
