@@ -22,7 +22,8 @@ M.general = {
 			vim.cmd([[exec "silent terminal ./a.out"]])
 			vim.cmd([[exec 'silent !rm a.out']])
 		elseif Option == "y" then
-			vim.cmd([[exec 'silent !g++ -o a.out %']] and [[exec "silent terminal ./a.out | less"]])
+			vim.cmd([[exec 'silent !g++ -o a.out %']])
+                        vim.cmd([[exec "silent terminal ./a.out | less"]])
 			vim.cmd([[exec 'silent !rm a.out']])
 		end
 	elseif vim.bo.filetype == "java" then
