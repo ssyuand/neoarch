@@ -24,6 +24,7 @@ sudo
 tar
 tmux
 trash-cli
+ripgrep
 unrar
 unzip
 usbutils
