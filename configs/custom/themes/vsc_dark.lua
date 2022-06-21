@@ -9,8 +9,8 @@ M.base_30 = {
    one_bg2 = "#313131",
    one_bg3 = "#3a3a3a",
    grey = "#444444",
-   grey_fg = "#4e4e4e",
-   grey_fg2 = "#585858",
+   grey_fg = "#6A9955",
+   grey_fg2 = "#4e4e4e",
    light_grey = "#626262",
    red = "#D16969",
    baby_pink = "#ea696f",
@@ -68,7 +68,7 @@ M.base_16 = {
    base0A = "#569CD6", --fuc name
    base0B = "#BD8D78",
    base0C = "#9CDCFE",
-   base0D = "#DCDCAA", -- include
+   base0D = "#DCDCAA",
    base0E = "#C586C0",
    base0F = "#CE9178",
 }
@@ -107,7 +107,7 @@ M.polish_hl = {
    TSCharacter = { -- char ex. 'c'
       fg = M.base_30.vscOrange
    },
-   TSConstMacro = { --#define in c
+   TSConstMacro = { --#include in c
       fg = M.base_30.pink
    },
    TSFloat = { --true/false
