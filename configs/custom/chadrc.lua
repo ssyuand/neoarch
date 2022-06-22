@@ -21,6 +21,9 @@ M.options = {
 
 M.plugins = {
    override = {
+     ["lukas-reineke/indent-blankline.nvim"] = {
+        show_current_context_start = false,
+     },
      ["nvim-treesitter/nvim-treesitter"] = {
         ensure_installed = { "java", "javascript", "python", "c", "cpp", "bash", "lua", "json"},
      },
