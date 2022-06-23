@@ -17,14 +17,15 @@ neovim
 netctl
 npm
 openssh
+ripgrep
 scrot
+shfmt
 simplescreenrecorder
 sof-firmware
 sudo
 tar
 tmux
 trash-cli
-ripgrep
 unrar
 unzip
 usbutils

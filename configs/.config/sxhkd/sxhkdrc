@@ -6,7 +6,7 @@ super + shift + k
     ~/neoarch/scripts/etc/bdown.sh
 super + shift + j
     ~/neoarch/scripts/etc/bup.sh
-super + a
+alt + a
     source ~/.xinitrc
 super + shift + s
     scrot -s

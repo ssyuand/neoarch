@@ -9,7 +9,7 @@ M.base_30 = {
    one_bg2 = "#313131",
    one_bg3 = "#3a3a3a",
    grey = "#444444",
-   grey_fg = '#6A9955',
+   grey_fg = "#6A9955",
    grey_fg2 = "#585858",
    light_grey = "#626262",
    red = "#D16969",
@@ -31,26 +31,26 @@ M.base_30 = {
    lightbg = "#303030",
    pmenu_bg = "#264f78", --select...
    folder_bg = "#7A8A92",
-   vscNone = 'NONE',
-   vscFront = '#D4D4D4',
-   vscBack = '#1e1e1e',
+   vscNone = "NONE",
+   vscFront = "#D4D4D4",
+   vscBack = "#1e1e1e",
    -- Syntax colors
-   vscGray = '#808080',
-   vscViolet = '#646695',
-   vscBlue = '#569CD6',
-   vscDarkBlue = '#223E55',
-   vscMediumBlue = '#18a2fe',
-   vscLightBlue = '#9CDCFE',
-   vscGreen = '#6A9955',
-   vscBlueGreen = '#4EC9B0',
-   vscLightGreen = '#B5CEA8',
-   vscRed = '#F44747',
-   vscOrange = '#CE9178',
-   vscLightRed = '#D16969',
-   vscYellowOrange = '#D7BA7D',
-   vscYellow = '#DCDCAA',
-   vscPink = '#C586C0',
-   vscPopupFront = '#000000',
+   vscGray = "#808080",
+   vscViolet = "#646695",
+   vscBlue = "#569CD6",
+   vscDarkBlue = "#223E55",
+   vscMediumBlue = "#18a2fe",
+   vscLightBlue = "#9CDCFE",
+   vscGreen = "#6A9955",
+   vscBlueGreen = "#4EC9B0",
+   vscLightGreen = "#B5CEA8",
+   vscRed = "#F44747",
+   vscOrange = "#CE9178",
+   vscLightRed = "#D16969",
+   vscYellowOrange = "#D7BA7D",
+   vscYellow = "#DCDCAA",
+   vscPink = "#C586C0",
+   vscPopupFront = "#000000",
 }
 
 M.base_16 = {
@@ -75,182 +75,181 @@ M.base_16 = {
 
 M.polish_hl = {
    NormalFloat = {
-      bg = M.base_30.vscNone
+      bg = M.base_30.vscNone,
    },
    Normal = {
-       bg = M.base_30.vscBack
+      bg = M.base_30.vscBack,
    },
    Pmenu = {
-       bg = M.base_30.vscNone
+      bg = M.base_30.vscNone,
    },
    TSError = { --return
-      fg = M.base_30.red
+      fg = M.base_30.red,
    },
    TSKeywordReturn = { --return
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSString = { --String ex "123"
-      fg = M.base_30.vscOrange
+      fg = M.base_30.vscOrange,
    },
    TSPunctBracket = { -- {} ()...
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSConstant = { -- final in java... const in c....
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSConstBuiltin = { -- null..
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSNumber = { -- number
-      fg = M.base_30.vscLightGreen
+      fg = M.base_30.vscLightGreen,
    },
    TSCharacter = { -- char ex. 'c'
-      fg = M.base_30.vscOrange
+      fg = M.base_30.vscOrange,
    },
    TSConstMacro = { --#define in c
-      fg = M.base_30.pink
+      fg = M.base_30.pink,
    },
    TSFloat = { --true/false
-      fg = M.base_30.vscLightGreen
+      fg = M.base_30.vscLightGreen,
    },
    TSAnnotation = { --true/false
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSAttribute = { --true/false
-      fg = M.base_30.vscBlueGreen
+      fg = M.base_30.vscBlueGreen,
    },
    TSNamespace = { --true/false
-      fg = M.base_30.vscBlueGreen
+      fg = M.base_30.vscBlueGreen,
    },
    TSFuncBuiltin = { --true/false
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSFunction = {
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSFuncMacro = {
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSParameter = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSParameterReference = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSMethod = { --fun and method name
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    TSField = { --fun and method name
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSProperty = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSConstructor = {
-      fg = M.base_30.vscBlueGreen
+      fg = M.base_30.vscBlueGreen,
    },
-   TSConditional= {
-      fg = M.base_30.vscPink
+   TSConditional = {
+      fg = M.base_30.vscPink,
    },
    TSRepeat = {
-      fg = M.base_30.vscPink
+      fg = M.base_30.vscPink,
    },
    TSLabel = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSKeyword = { --class static...
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSKeywordFunction = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSKeywordOperator = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSOperator = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSException = {
-      fg = M.base_30.vscPink
+      fg = M.base_30.vscPink,
    },
    TSType = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSTypeBuiltin = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSStructure = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSInclude = {
-      fg = M.base_30.vscPink
+      fg = M.base_30.vscPink,
    },
    TSVariable = {
-      fg = M.base_30.vscLightBlue
+      fg = M.base_30.vscLightBlue,
    },
    TSText = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSUnderline = {
-      fg = M.base_30.vscYellowOrange
+      fg = M.base_30.vscYellowOrange,
    },
    TSTag = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSTagDelimiter = {
-      fg = M.base_30.vscGray
+      fg = M.base_30.vscGray,
    },
    TSTitle = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSLiteral = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSEmphasis = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSStrong = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    TSURI = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSTextReference = {
-      fg = M.base_30.vscOrange
+      fg = M.base_30.vscOrange,
    },
    TSPunctDelimiter = {
-      fg = M.base_30.vscFront
+      fg = M.base_30.vscFront,
    },
    TSStringEscape = {
-      fg = M.base_30.vscOrange
+      fg = M.base_30.vscOrange,
    },
    TSNote = {
-      fg = M.base_30.vscBlueGreen
+      fg = M.base_30.vscBlueGreen,
    },
    TSWarning = {
-      fg = M.base_30.vscYellowOrange
+      fg = M.base_30.vscYellowOrange,
    },
-   TSDanger= {
-      fg = M.base_30.vscRed
+   TSDanger = {
+      fg = M.base_30.vscRed,
    },
    TSComment = {
-      fg = M.base_30.vscGreen
+      fg = M.base_30.vscGreen,
    },
    --LSP
    DiagnosticWarn = {
-      fg = M.base_30.vscYellow
+      fg = M.base_30.vscYellow,
    },
    DiagnosticError = {
-      fg = M.base_30.vscRed
+      fg = M.base_30.vscRed,
    },
    DiagnosticInfo = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
    --Lua
    luaFuncArgName = {
-      fg = M.base_30.vscBlue
+      fg = M.base_30.vscBlue,
    },
-
 }
 
 M.type = "dark"

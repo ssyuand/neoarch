@@ -1,6 +1,8 @@
 brillo
+cheese
+git-delta
 nvim-packer-git
 picom-jonaburg-git
+stylua
 visual-studio-code-bin
-git-delta
 --END OF FILE--
