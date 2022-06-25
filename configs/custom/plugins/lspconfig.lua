@@ -4,7 +4,7 @@ M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
    -- lspservers with default config
-   local servers = { "bashls", "jdtls", "clangd", "pyright", "tsserver" }
+   local servers = { "rust_analyzer", "bashls", "jdtls", "clangd", "pyright", "tsserver" }
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {

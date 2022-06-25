@@ -1,5 +1,3 @@
-//g/^\s*$/d
-export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
