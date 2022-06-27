@@ -1,6 +1,7 @@
 brillo
 cheese
 git-delta
+masterpdfeditor
 nvim-packer-git
 picom-jonaburg-git
 stylua

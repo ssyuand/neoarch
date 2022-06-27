@@ -41,6 +41,13 @@ M.general = {
                elseif Option == "y" then
                   vim.cmd([[exec 'silent !javac %']] and [[exec "silent terminal java % | less"]])
                end
+            elseif vim.bo.filetype == "rust" then
+               Option = vim.fn.input "do u want use less? (y/n):"
+               if Option == "n" then
+                  vim.cmd [[exec 'terminal cargo run']]
+               elseif Option == "y" then
+                  vim.cmd [[exec 'terminal cargo run | less']]
+               end
             end
          end,
       },

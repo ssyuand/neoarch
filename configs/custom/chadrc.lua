@@ -56,7 +56,7 @@ M.ui = {
    },
    changed_themes = {},
    theme_toggle = { "vsc_dark", "vsc_light" },
-   theme = "vsc_dark", -- default theme
+   theme = "vsc_light", -- default theme
    transparency = false,
 }
 
