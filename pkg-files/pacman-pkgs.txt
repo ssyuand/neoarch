@@ -36,4 +36,5 @@ xorg-setxkbmap
 xorg-xinit
 xorg-xsetroot
 zip
+zoxide
 --END OF FILE--
