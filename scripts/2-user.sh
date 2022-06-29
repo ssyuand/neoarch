@@ -35,8 +35,8 @@ echo -ne "
 "
 export PATH=$PATH:~/.local/bin
 if [[ $DESKTOP_ENV == "dwm" ]]; then
-echo "netctl"
-        sudo cp ~/neoarch/configs/wlan0 /etc/netctl
+# echo "netctl"
+#         sudo cp ~/neoarch/configs/wlan0 /etc/netctl
 echo "case-insensitive"
         echo 'set completion-ignore-case On' | sudo tee -a /etc/inputrc
 echo "bash"
