@@ -12,8 +12,7 @@ export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_history
 alias rm="trash-put"
-alias l='ls -A -S -CF --color=auto'
-alias ls='ls -A -n -LSh --color=always'
+alias ls='ls -ltr --color=always'
 alias fd="fd . / --absolute-path --type d --hidden | fzf --preview 'tree -CL 2 {}'"
 alias v=vim_fzf
 alias ip='ip --color=auto'
