@@ -16,10 +16,8 @@ M.general = {
       ["<C-l>"] = { "<cmd> noh <CR>", opts = {} },
       ["<C-q>"] = { "<cmd> quit <CR>", opts = {} },
 
-      ["H"] = { "<C-w>3>", opts = {} },
-      ["L"] = { "<C-w>3<", opts = {} },
-      ["K"] = { "<C-w>2+", opts = {} },
-      ["J"] = { "<C-w>2-", opts = {} },
+      ["<C-w><"] = { "<C-w>3>", opts = {} },
+      ["<C-w>>"] = { "<C-w>3<", opts = {} },
 
       ["<leader>c"] = {
          function()
@@ -36,10 +34,13 @@ M.general = {
                end
             elseif vim.bo.filetype == "java" then
                Option = vim.fn.input "do u want use less? (y/n):"
+               local main = vim.fn.input "where is ur main method:"
+               local ta = "silent terminal java " .. main
                if Option == "n" then
-                  vim.cmd([[exec 'silent !javac %']] and [[exec "silent terminal java %"]])
+                  print(ta)
+                  vim.cmd([[exec 'silent !javac %']] and ta)
                elseif Option == "y" then
-                  vim.cmd([[exec 'silent !javac %']] and [[exec "silent terminal java % | less"]])
+                  vim.cmd([[exec 'silent !javac %']] and ta)
                end
             elseif vim.bo.filetype == "rust" then
                Option = vim.fn.input "do u want use less? (y/n):"

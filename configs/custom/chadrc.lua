@@ -9,6 +9,7 @@ M.options = {
       vim.opt.shiftwidth = 4
       vim.opt.pumheight = 20
       vim.opt.scrolloff = 5
+      vim.opt.showtabline = 1
    end,
 
    nvChad = {
@@ -56,7 +57,7 @@ M.ui = {
    },
    changed_themes = {},
    theme_toggle = { "vsc_dark", "vsc_light" },
-   theme = "vsc_light", -- default theme
+   theme = "vsc_dark", -- default theme
    transparency = false,
 }
 
