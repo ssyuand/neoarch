@@ -9,7 +9,7 @@ M.options = {
       vim.opt.shiftwidth = 4
       vim.opt.pumheight = 20
       vim.opt.scrolloff = 5
-      vim.opt.showtabline = 1
+      vim.opt.showtabline = 0
    end,
 
    nvChad = {
@@ -33,7 +33,6 @@ M.plugins = {
       "kyazdani42/nvim-tree.lua",
       "NvChad/nvterm",
       "lewis6991/gitsigns.nvim",
-      "nvim-telescope/telescope.nvim",
    },
 
    options = {
