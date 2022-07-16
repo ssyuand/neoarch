@@ -23,7 +23,7 @@ local sources = {
 	b.formatting.clang_format,
 
 	-- rust
-	b.formatting.rustfmt({ args = "--emit=stdout" }),
+	b.formatting.rustfmt,
 }
 
 null_ls.setup({
