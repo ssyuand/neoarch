@@ -6,9 +6,4 @@ return {
          require "custom.plugins.null-ls"
       end,
    },
-   ["hoob3rt/lualine.nvim"] = {
-      config = function()
-         require "custom.plugins.lualine"
-      end,
-   },
 }

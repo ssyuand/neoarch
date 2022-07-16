@@ -9,6 +9,7 @@ M.options = {
       vim.opt.shiftwidth = 4
       vim.opt.pumheight = 20
       vim.opt.scrolloff = 5
+      vim.opt.laststatus = 0
       vim.opt.showtabline = 0
    end,
 
