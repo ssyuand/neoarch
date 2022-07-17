@@ -72,6 +72,9 @@ echo "patch"
 	patch -p1 < uselessgap.diff
 	patch -p1 < pertag.diff
 	patch -p1 < fackfullscreen.diff
+	patch -p1 < systray.diff
+        patch -p1 < truecenteredtitle.diff
+        patch -p1 < blanktags.diff
 	sudo make install
 echo "fcitx"
 	fcitx5 &

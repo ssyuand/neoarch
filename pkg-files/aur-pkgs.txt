@@ -1,3 +1,4 @@
+XMenu
 brillo
 cheese
 git-delta
