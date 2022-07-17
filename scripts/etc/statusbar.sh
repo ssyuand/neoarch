@@ -36,7 +36,7 @@ get_charge() {
 }
 
 get_status() {
-	battery_status="no battery"
+	battery_status=""
 	if $(has_battery); then
 		battery_status=" $(get_battery_status)"
 	fi
