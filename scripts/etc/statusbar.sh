@@ -48,9 +48,21 @@ print_date() {
 	date +" %a %d %b %Y |  %I:%M:%S %p %Z"
 }
 
-xst=`echo $DISPLAY`
-if [[ $xst != "" ]]; then
-while true; do
-	xsetroot -name "$(print_wifi) $(print_date) |$(get_status) "
-done
+spid="$(pidof -o %PPID -x -- "statusbar.sh")"
+xst=$(echo $DISPLAY)
+echo $pid
+if [[ $xst != "" && $spid == "" ]]; then
+	while true; do
+		xsetroot -name "$(print_wifi) $(print_date) |$(get_status) "
+		FILE=/dev/input/by-id/usb-Topre_Corporation_HHKB_Professional-event-kbd
+		if [ -L "$FILE" ]; then
+			setxkbmap -layout us -option
+		else
+			setxkbmap -layout us -option ctrl:swapcaps
+			setxkbmap -option altwin:swap_lalt_lwin
+			setxkbmap -option ctrl:swap_rctrl_lwin
+
+		fi
+		sleep 10s
+	done
 fi
