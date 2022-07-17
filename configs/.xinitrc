@@ -9,7 +9,9 @@ if [ -L "$FILE" ]; then
 	setxkbmap -layout us -option
 else 
 	setxkbmap -layout us -option ctrl:swapcaps
-        setxkbmap -option altwin:swap_alt_win
+        setxkbmap -option altwin:swap_lalt_lwin
+        setxkbmap -option ctrl:swap_rctrl_lwin
+
 fi
 
 ~/neoarch/scripts/etc/wallpaper.sh &

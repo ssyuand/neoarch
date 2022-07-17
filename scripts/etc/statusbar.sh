@@ -48,7 +48,9 @@ print_date() {
 	date +" %a %d %b %Y |  %I:%M:%S %p %Z"
 }
 
+xst=`echo $DISPLAY`
+if [[ $xst != "" ]]; then
 while true; do
 	xsetroot -name "$(print_wifi) $(print_date) |$(get_status) "
-	sleep 1
 done
+fi
