@@ -80,7 +80,7 @@ echo $spid
 xst=$(echo $DISPLAY)
 if [[ $xst != "" && $spid == "" ]]; then
 	while true; do
-		xsetroot -name "$(print_wifi) $(print_date) |$(get_status) "
+		xsetroot -name "$(print_wifi) $(print_date) |$(get_status)"
 		check_hhkb
 		case $? in
 		0) #  normal layout
