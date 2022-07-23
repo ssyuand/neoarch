@@ -2,17 +2,17 @@ export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
-export JAVA_HOME='/usr/lib/jvm/java-11-openjdk/' # need it to change version
+export JAVA_HOME='/usr/lib/jvm/java-18-openjdk/' # need it to change version
 export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
 export FZF_DEFAULT_COMMAND='fd . / --type f --color=never --hidden --absolute-path'
-export FZF_DEFAULT_OPTS='--multi --no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+export FZF_DEFAULT_OPTS='--multi +s --no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 export HISTFILESIZE=-1                  # unlimited
 export HISTSIZE=-1                      # unlimited
 export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_history
 alias rm="trash-put"
-alias ls='ls -ltr --color=always'
+alias ls='ls -al --color=always'
 alias fd="fd . / --absolute-path --type d --hidden | fzf --preview 'tree -CL 2 {}'"
 alias v=vim_fzf
 alias ip='ip --color=auto'
