@@ -1,6 +1,4 @@
 #!/bin/bash
-# Network speed stuff stolen from http://linuxclues.blogspot.sg/2009/11/shell-script-show-network-speed.html
-
 print_wifi() {
 	ip=$(ip route get 8.8.8.8 2>/dev/null | grep -Eo 'src [0-9.]+' | grep -Eo '[0-9.]+')
 	echo -e "[ $ip ]"
@@ -79,6 +77,8 @@ spid="$(pidof -o %PPID -x -- "statusbar.sh")"
 echo $spid
 xst=$(echo $DISPLAY)
 if [[ $xst != "" && $spid == "" ]]; then
+
+  # HHKB
 	while true; do
 		xsetroot -name "$(print_wifi) $(print_date) |$(get_status)"
 		check_hhkb
@@ -100,4 +100,5 @@ if [[ $xst != "" && $spid == "" ]]; then
 			;;
 		esac
 	done
+
 fi
