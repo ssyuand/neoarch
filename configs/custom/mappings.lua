@@ -4,71 +4,64 @@ vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv") -- Moving block up
 vim.keymap.set("v", "<S-up>", ":m '<-2<CR>gv=gv") -- Moving block down
 
 M.general = {
-   n = {
-      [";"] = { ":", opts = {} },
-      ["<S-Down>"] = { "<cmd> m .+1 <CR>==", opts = {} },
-      ["<S-up>"] = { "<cmd> m .-2 <CR>==", opts = {} },
-      ["<C-l>"] = { "<cmd> noh <CR>", opts = {} },
+  n = {
+    [";"] = { ":", opts = {} },
+    ["<S-Down>"] = { "<cmd> m .+1 <CR>==", opts = {} },
+    ["<S-up>"] = { "<cmd> m .-2 <CR>==", opts = {} },
+    ["<C-l>"] = { "<cmd> noh <CR>", opts = {} },
 
-      ["<C-w><"] = { "<C-w>3>", opts = {} },
-      ["<C-w>>"] = { "<C-w>3<", opts = {} },
+    -- lsp
+    ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", opts = {} },
+    ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts = {} },
+    ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", opts = {} },
+    ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", opts = {} },
+    ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", opts = {} },
+    ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", opts = {} },
+    ["gn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", opts = {} },
+    ["<leader>q"] = { "<cmd>Telescope diagnostics<CR>", opts = {} },
+    ["<leader>x"] = { "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'single' })<CR>", opts = {} },
+    ["<leader>h"] = { "<cmd>lua vim.diagnostic.hide()<CR>", opts = {} }
 
-      ["<leader>c"] = {
-         function()
-            if vim.bo.filetype == "c" or vim.bo.filetype == "cpp" then
-               Option = vim.fn.input "do u want use less? (y/n):"
-               if Option == "n" then
-                  vim.cmd [[exec 'silent !g++ -o a.out %']]
-                  vim.cmd [[exec "silent terminal ./a.out"]]
-                  vim.cmd [[exec 'silent !rm a.out']]
-               elseif Option == "y" then
-                  vim.cmd [[exec 'silent !g++ -o a.out %']]
-                  vim.cmd [[exec "silent terminal ./a.out | less"]]
-                  vim.cmd [[exec 'silent !rm a.out']]
-               end
-            elseif vim.bo.filetype == "java" then
-               Option = vim.fn.input "do u want use less? (y/n):"
-               local main = vim.fn.input "ur parameter"
-               local ta = "silent terminal java " .. main
-               if Option == "n" then
-                  print(ta)
-                  vim.cmd([[exec 'silent !javac %']] and ta)
-               elseif Option == "y" then
-                  vim.cmd([[exec 'silent !javac %']] and ta)
-               end
-            elseif vim.bo.filetype == "rust" then
-               Option = vim.fn.input "do u want use less? (y/n):"
-               if Option == "n" then
-                  vim.cmd [[exec 'terminal cargo run']]
-               elseif Option == "y" then
-                  vim.cmd [[exec 'terminal cargo run | less']]
-               end
-            end
-         end,
-      },
-   },
+  },
 }
 
 M.lspconfig = {
-   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-   n = {
-      ["<leader>q"] = {
-         function()
-            vim.diagnostic.setloclist()
-         end,
-      },
-      ["<leader>f"] = {
-         function()
-            vim.lsp.buf.formatting()
-         end,
-      },
-      
---      ["<Leader>l"] = {
---          function()
---   require("lsp_lines").toggle,
---          end,
--- },
-   },
+  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
+  n = {
+    ["<leader>f"] = {
+      function()
+        vim.lsp.buf.formatting()
+      end,
+    },
+  },
 }
+
+-- build and execute
+local lang_maps = {
+  cpp = { build = "g++ % -o %:r", exec = "./%:r" },
+  typescript = { build = "deno compile %", exec = "deno run %" },
+  javascript = { build = "deno compile %", exec = "deno run %" },
+  python = { exec = "python %" },
+  java = { build = "javac %", exec = "java %:r" },
+  sh = { exec = "./%" },
+  go = { build = "go build", exec = "go run %" },
+  rust = { exec = "cargo run" },
+  arduino = {
+    build = "arduino-cli compile --fqbn arduino:avr:uno %:r",
+    exec = "arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno %:r",
+  },
+}
+for lang, data in pairs(lang_maps) do
+  if data.build ~= nil then
+    vim.api.nvim_create_autocmd(
+      "FileType",
+      { command = "nnoremap <Leader>b :!" .. data.build .. "<CR>", pattern = lang }
+    )
+  end
+  vim.api.nvim_create_autocmd(
+    "FileType",
+    { command = "nnoremap <Leader>e :split<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
+  )
+end
 
 return M

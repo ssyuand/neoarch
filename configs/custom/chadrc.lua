@@ -11,6 +11,10 @@ M.options = {
     vim.opt.scrolloff = 5
     vim.opt.title = true
   end,
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    command = "lua vim.lsp.buf.formatting_sync(nil, 1000)",
+    pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml",
+  }),
 
   nvChad = {
     -- updater
@@ -19,8 +23,28 @@ M.options = {
   },
 }
 
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 M.plugins = {
   override = {
+    ["hrsh7th/nvim-cmp"] = {
+      window = {
+        documentation = {
+          border = border "CmpBorder",
+        },
+      },
+    },
     ["lukas-reineke/indent-blankline.nvim"] = {
       show_current_context_start = false,
     },
@@ -31,9 +55,9 @@ M.plugins = {
   remove = {
     "folke/which-key.nvim",
     "kyazdani42/nvim-tree.lua",
-      lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig", -- path of lspconfig file
-      },
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig", -- path of lspconfig file
+    },
     "NvChad/nvterm",
     "lewis6991/gitsigns.nvim",
   },

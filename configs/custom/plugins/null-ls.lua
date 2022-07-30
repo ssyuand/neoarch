@@ -14,7 +14,7 @@ local sources = {
   b.formatting.json_tool,
 
   -- Lua
-  b.formatting.stylua,
+  -- b.formatting.stylua, -- comment because use sumneko_lua to formatting
 
   -- Shell
   b.formatting.shfmt,

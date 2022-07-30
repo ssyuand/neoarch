@@ -3,7 +3,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-  local servers = { "rust_analyzer", "bashls", "jdtls", "clangd", "pyright", "tsserver", "sumneko_lua", "jsonls" }
+local servers = { "rust_analyzer", "bashls", "jdtls", "clangd", "pyright", "tsserver", "sumneko_lua", "jsonls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -14,13 +14,13 @@ end
 
 --  global vim is undefined
 lspconfig.sumneko_lua.setup {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
