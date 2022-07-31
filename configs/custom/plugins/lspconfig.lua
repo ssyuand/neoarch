@@ -17,7 +17,7 @@ lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "require" },
       },
     },
   },
@@ -27,14 +27,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   -- virtual_text = { spacing = 3 },
   virtual_text = false,
   virtual_lines = true, -- enable/disable lsp_lines.nvim plugin
-  signs = false,
   underline = true,
-  update_in_insert = true,
+  update_in_insert = false,
 
-  vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "", numhl = "DiagnosticSignError" }),
-  vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "", numhl = "DiagnosticSignWarn" }),
-  vim.fn.sign_define("DiagnosticSignInformation", { text = " ", texthl = "", numhl = "DiagnosticSignInformation" }),
-  vim.fn.sign_define("DiagnosticSignHint", { text = " ", texthl = "", numhl = "DiagnosticSignHint" }),
+  vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "", numhl = "DiagnosticSignError" }),
+  vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "", numhl = "DiagnosticSignWarn" }),
+  vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "", numhl = "DiagnosticSignInformation" }),
+  vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "", numhl = "DiagnosticSignHint" }),
 })
 vim.cmd "highlight! CmpItemKindSnippet guibg=NONE guifg=#569CD6"
 vim.cmd "highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6"

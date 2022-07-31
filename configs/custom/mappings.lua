@@ -18,21 +18,11 @@ M.general = {
     ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", opts = {} },
     ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", opts = {} },
     ["gn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", opts = {} },
+    ["<leader>fm"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", opts = {} },
     ["<leader>q"] = { "<cmd>Telescope diagnostics<CR>", opts = {} },
     ["<leader>x"] = { "<cmd>lua vim.diagnostic.open_float(0, { scope = 'line', border = 'single' })<CR>", opts = {} },
-    ["<leader>h"] = { "<cmd>lua vim.diagnostic.hide()<CR>", opts = {} }
+    ["<leader>h"] = { "<cmd>lua vim.diagnostic.hide()<CR>", opts = {} },
 
-  },
-}
-
-M.lspconfig = {
-  -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
-  n = {
-    ["<leader>f"] = {
-      function()
-        vim.lsp.buf.formatting()
-      end,
-    },
   },
 }
 
@@ -64,4 +54,6 @@ for lang, data in pairs(lang_maps) do
   )
 end
 
+local ft = vim.bo.buftype
+print(ft)
 return M
