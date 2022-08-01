@@ -1,8 +1,8 @@
 local user_cmd = vim.api.nvim_create_user_command
 local auto_cmd = vim.api.nvim_create_autocmd
+local execute = vim.api.nvim_command
 auto_cmd("BufWritePre", {
   command = "lua vim.lsp.buf.formatting_sync(nil, 1000)",
-  -- pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml, *.sh",
   pattern = "*",
 })
 
@@ -27,9 +27,10 @@ local attach_to_buffer = function(bufnr, pattern, command)
 end
 
 user_cmd("AutoRun", function()
-  print("run")
-  local bufnr = vim.fn.input "Bufnr: "
-  local pattern = vim.fn.input "pattern: "
-  local command = vim.split(vim.fn.input "command: ", " ")
+  execute("vnew")
+  -- local bufnr = vim.fn.input "Bufnr: "
+  local bufnr = vim.api.nvim_get_current_buf()
+  local pattern = vim.fn.expand('%')
+  local command = vim.fn.input "command: "
   attach_to_buffer(tonumber(bufnr), pattern, command)
 end, {})
