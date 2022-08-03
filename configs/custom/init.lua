@@ -13,10 +13,11 @@ local attach_to_buffer = function(bufnr, pattern, command)
     callback = function()
       local append_data = function(_, data)
         if data then
-          vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+          -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data) -- refresh
+          vim.api.nvim_buf_set_lines(bufnr, 1, 1, false, data) -- no refresh
         end
       end
-      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "output:" })
+      vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, { "----------" })
       vim.fn.jobstart(command, {
         stdout_buffered = true,
         on_stdout = append_data,
@@ -28,7 +29,6 @@ end
 
 user_cmd("AutoRun", function()
   execute("vnew")
-  -- local bufnr = vim.fn.input "Bufnr: "
   local bufnr = vim.api.nvim_get_current_buf()
   local pattern = vim.fn.expand('%')
   local command = vim.fn.input "command: "
