@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 #sudo systemctl disable NetworkManager
 #sudo systemctl disable dhcpcd
 #sudo systemctl disable iwd

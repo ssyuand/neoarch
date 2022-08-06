@@ -3,11 +3,11 @@ Interface=wlan0
 Connection=wireless
 Security=wpa
 
-ESSID='TP-Link_808C'
-Key='23426160'
+ESSID='2679Y12784'
+Key='26707607'
 IP=static
-Address='192.168.0.66/24'
-Gateway='192.168.0.1'
-DNS=('192.168.0.1')
+Address='192.168.1.66/24'
+Gateway='192.168.1.1'
+#DNS=('192.168.0.1')
 # Uncomment this if your ssid is hidden
 #Hidden=yes
