@@ -1,3 +1,4 @@
+#!/bin/bash
 export PATH=/usr/local/bin:$PATH
 export EDITOR=nvim
 export LANG=en_US.UTF-8
@@ -12,28 +13,16 @@ export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_history
 alias rm="trash-put"
-alias ls='ls -al --color=always'
+alias ll='ls -al --color --group-directories-first'
+alias ls='ls -t --color -h --group-directories-first'
+alias v="nvim"
 alias fd="fd . / --absolute-path --type d --hidden | fzf --preview 'tree -CL 2 {}'"
-alias v=vim_fzf
 alias ip='ip --color=auto'
 shopt -s autocd
 shopt -s histappend # append to history, don't overwrite it
 eval "$(zoxide init bash --cmd c --hook pwd)"
 PS1='\[\e[0;31m\]\u\[\e[0;31m\]@\[\e[0;34m\]\H \[\e[0;32m\]\W \[\e[0m\]$ \[\e[0m\]'
 
-vim_fzf() {
-	if [[ $@ != "" ]]; then
-		nvim $@
-		exec bash
-	else
-		FOO="$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')"
-	fi
-	if [[ "${FOO}" != "" ]]; then
-		nvim $FOO
-	else
-		exec bash
-	fi
-}
 # CTRL-R - Paste the selected command from history into the command line
 if [[ "$-" =~ "i" ]]; then # Check if it is an interactive terminal
 	bind -x '"\C-r": hist_fzf'
@@ -45,16 +34,13 @@ hist_fzf() {
 	READLINE_LINE=${output#*$'\t'}
 	READLINE_POINT=0x7fffffff
 }
-if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 	startx
 fi
 [[ -n "$TMUX" ]] && PROMPT_COMMAND='echo -n -e "\e]2;${PWD/${HOME}/~}\e\\"; history -a; history -r;'
 
 # =============================================================================
-#
 # Hook configuration for zoxide.
-#
-
 # Initialize hook.
 if [[ ${PROMPT_COMMAND:=} != *'__zoxide_hook'* ]]; then
 	PROMPT_COMMAND="__zoxide_hook;${PROMPT_COMMAND#;}"

@@ -77,8 +77,7 @@ spid="$(pidof -o %PPID -x -- "statusbar.sh")"
 echo $spid
 xst=$(echo $DISPLAY)
 if [[ $xst != "" && $spid == "" ]]; then
-
-  # HHKB
+	# HHKB
 	while true; do
 		xsetroot -name "$(print_wifi) $(print_date) |$(get_status)"
 		check_hhkb

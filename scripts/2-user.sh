@@ -6,10 +6,9 @@ echo -ne "
 "
 source $HOME/neoarch/configs/setup.conf
 sudo pacman -Sy --noconfirm --needed
-sed -n '/'END'/q;p' ~/neoarch/pkg-files/${DESKTOP_ENV}.txt | while read line
-do
-  echo "INSTALLING: ${line}"
-  sudo pacman -S --noconfirm --needed ${line}
+sed -n '/'END'/q;p' ~/neoarch/pkg-files/${DESKTOP_ENV}.txt | while read line; do
+	echo "INSTALLING: ${line}"
+	sudo pacman -S --noconfirm --needed ${line}
 done
 
 echo -ne "
@@ -18,14 +17,13 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 if [[ ! $AUR_HELPER == none ]]; then
-  mkdir ~/library
-  git clone "https://aur.archlinux.org/$AUR_HELPER.git" ~/library/$AUR_HELPER
-  cd ~/library/$AUR_HELPER && makepkg -si --noconfirm
-  sed -n '/'END'/q;p' ~/neoarch/pkg-files/aur-pkgs.txt | while read line
-  do
-    echo "INSTALLING: ${line}"
-    $AUR_HELPER -S --noconfirm --needed ${line}
-  done
+	mkdir ~/library
+	git clone "https://aur.archlinux.org/$AUR_HELPER.git" ~/library/$AUR_HELPER
+	cd ~/library/$AUR_HELPER && makepkg -si --noconfirm
+	sed -n '/'END'/q;p' ~/neoarch/pkg-files/aur-pkgs.txt | while read line; do
+		echo "INSTALLING: ${line}"
+		$AUR_HELPER -S --noconfirm --needed ${line}
+	done
 fi
 
 echo -ne "
@@ -35,53 +33,57 @@ echo -ne "
 "
 export PATH=$PATH:~/.local/bin
 if [[ $DESKTOP_ENV == "dwm" ]]; then
-# echo "netctl"
-#         sudo cp ~/neoarch/configs/wlan0 /etc/netctl
-echo "case-insensitive"
-        echo 'set completion-ignore-case On' | sudo tee -a /etc/inputrc
-echo "bash"
+	# echo "netctl"
+	#         sudo cp ~/neoarch/configs/wlan0 /etc/netctl
+	echo "case-insensitive"
+	echo 'set completion-ignore-case On' | sudo tee -a /etc/inputrc
+	echo "bash"
 	cp ~/neoarch/configs/.bashrc ~/
-echo "fonts"
+	echo "fonts"
 	sudo tar -xvf ~/neoarch/configs/etc/font.tar -C /usr/share/fonts
-echo "config"
+	echo "config"
 	cp -r ~/neoarch/configs/.config ~/
-echo "xinitrc"
+	echo "xinitrc"
 	cp ~/neoarch/configs/.xinitrc ~/
-echo "gitconfig"
+	echo "gitconfig"
 	cp ~/neoarch/configs/.gitconfig ~/
-echo "tmux"
+	echo "tmux"
 	cp ~/neoarch/configs/.tmux.conf ~/
-echo "nvchad"
-        git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-        cp -r ~/neoarch/configs/custom/ ~/.config/nvim/lua
-echo "rofi"
+	echo "nvchad"
+	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+	cp -r ~/neoarch/configs/custom/ ~/.config/nvim/lua
+	echo "rofi"
 	mkdir -p ~/.local/share/rofi/themes
 	cp ~/neoarch/configs/.config/rofi/light.rasi ~/.local/share/rofi/themes/light.rasi
-echo "feh"
+	echo "feh"
 	mkdir ~/Desktop
 	tar -xvf ~/neoarch/configs/etc/wallpaper.tar -C ~/Desktop
-echo "touchpad"
+	echo "touchpad"
 	sudo cp ~/neoarch/configs/30-touchpad.conf /etc/X11/xorg.conf.d
-echo "dwm"
+	echo "dwm"
 	git clone https://git.suckless.org/dwm ~/library/dwm
 	cp ~/neoarch/configs/config.h ~/library/dwm/config.h
 	cp ~/neoarch/configs/patch/* ~/library/dwm
 	cd ~/library/dwm
-echo "patch"
-	patch -p1 < ru_fib_gap.diff
-	patch -p1 < uselessgap.diff
-	patch -p1 < pertag.diff
-	patch -p1 < fackfullscreen.diff
-	patch -p1 < systray.diff
-        patch -p1 < truecenteredtitle.diff
-        patch -p1 < blanktags.diff
+	echo "patch"
+	patch -p1 <ru_fib_gap.diff
+	patch -p1 <uselessgap.diff
+	patch -p1 <pertag.diff
+	patch -p1 <fackfullscreen.diff
+	patch -p1 <systray.diff
+	patch -p1 <truecenteredtitle.diff
+	patch -p1 <blanktags.diff
 	sudo make install
-echo "fcitx"
+	echo "fcitx"
 	fcitx5 &
 	git clone https://github.com/catppuccin/fcitx5.git ~/library/fcitx5
 	mkdir -p ~/.local/share/fcitx5/themes/
 	cp -r ~/library/fcitx5/Catppuccin ~/.local/share/fcitx5/themes
-	echo "Theme=Catppuccin" > ~/.config/fcitx5/conf/classicui.conf
+	echo "Theme=Catppuccin" >~/.config/fcitx5/conf/classicui.conf
+	xdg-mime default pcmanfm.desktop inode/directory application/x-gnome-saved-search
+	xdg-mime default feh.desktop image/png
+	xdg-mime default feh.desktop image/jpeg
+	echo "set default file manager"
 fi
 echo -ne "
 -------------------------------------------------------------------------

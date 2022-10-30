@@ -10,6 +10,7 @@ fcitx5-gtk
 fd
 fzf
 git
+gst-plugin-pipewire
 htop
 iwd
 jdk17-openjdk
@@ -17,6 +18,8 @@ neovim
 netctl
 npm
 openssh
+pcmanfm
+pulseeffects-legacy
 ripgrep
 scrot
 shfmt
