@@ -6,9 +6,9 @@ vim.keymap.set("v", "<S-up>", ":m '<-2<CR>gv=gv") -- Moving block down
 M.general = {
   n = {
     [";"] = { ":", opts = {} },
+    ["<C-l>"] = { "<cmd> noh <CR>", opts = {} },
     ["<S-Down>"] = { "<cmd> m .+1 <CR>==", opts = {} },
     ["<S-up>"] = { "<cmd> m .-2 <CR>==", opts = {} },
-    ["<C-l>"] = { "<cmd> noh <CR>", opts = {} },
 
     -- lsp
     ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", opts = {} },
@@ -26,34 +26,4 @@ M.general = {
   },
 }
 
--- build and execute
-local lang_maps = {
-  cpp = { build = "g++ % -o %:r", exec = "./%:r" },
-  typescript = { build = "deno compile %", exec = "deno run %" },
-  javascript = { build = "deno compile %", exec = "deno run %" },
-  python = { exec = "python %" },
-  java = { build = "javac %", exec = "java %:r" },
-  sh = { exec = "./%" },
-  go = { build = "go build", exec = "go run %" },
-  rust = { exec = "cargo run" },
-  arduino = {
-    build = "arduino-cli compile --fqbn arduino:avr:uno %:r",
-    exec = "arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno %:r",
-  },
-}
-for lang, data in pairs(lang_maps) do
-  if data.build ~= nil then
-    vim.api.nvim_create_autocmd(
-      "FileType",
-      { command = "nnoremap <Leader>b :!" .. data.build .. "<CR>", pattern = lang }
-    )
-  end
-  vim.api.nvim_create_autocmd(
-    "FileType",
-    { command = "nnoremap <Leader>e :split<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
-  )
-end
-
-local ft = vim.bo.buftype
-print(ft)
 return M

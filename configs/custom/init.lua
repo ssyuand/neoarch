@@ -1,10 +1,10 @@
 local user_cmd = vim.api.nvim_create_user_command
 local auto_cmd = vim.api.nvim_create_autocmd
 local execute = vim.api.nvim_command
-auto_cmd("BufWritePre", {
-  command = "lua vim.lsp.buf.formatting_sync(nil, 1000)",
-  pattern = "*",
-})
+-- auto_cmd("BufWritePre", {
+--   command = "lua vim.lsp.buf.formatting_sync(nil, 1000)",
+--   pattern = "*",
+-- })
 
 local attach_to_buffer = function(bufnr, pattern, command)
   auto_cmd("BufWritePost", {
