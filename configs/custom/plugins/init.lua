@@ -22,4 +22,13 @@ return {
       require "custom.plugins.lualine"
     end,
   },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    run = ':TSUpdate',
+    config = function() require('nvim-treesitter.configs').setup({
+        ensure_installed = { "lua" },
+        sync_install = true,
+        auto_install = true,
+      })
+    end,
+  }
 }
