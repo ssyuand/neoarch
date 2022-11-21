@@ -7,14 +7,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 FILE=/dev/input/by-id/usb-Topre_Corporation_HHKB_Professional-event-kbd
 if [ -L "$FILE" ]; then
 	setxkbmap -layout us -option
-else 
+else
 	setxkbmap -layout us -option ctrl:swapcaps
-        setxkbmap -option altwin:swap_lalt_lwin
-        setxkbmap -option ctrl:swap_rctrl_lwin
+	setxkbmap -option altwin:swap_lalt_lwin
+	setxkbmap -option ctrl:swap_rctrl_lwin
 
 fi
 
-~/neoarch/scripts/etc/wallpaper.sh &
 ~/neoarch/scripts/etc/statusbar.sh &
 picom --experimental-backends -b
 
@@ -26,4 +25,10 @@ brillo -c 1
 feh --bg-fill ~/Desktop/wallpaper/wp.jpg
 exec sxhkd &
 exec fcitx5 &
+pkexec /usr/bin/brillo -U 100
+for i in {1..100};
+do
+  pkexec /usr/bin/brillo -A 0.5
+done
+
 exec dwm
