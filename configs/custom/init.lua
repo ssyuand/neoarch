@@ -18,6 +18,8 @@ local attach_to_buffer = function(bufnr, pattern, command)
         end
       end
       vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, { "----------" })
+      vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, { os.date("%m/%d/%Y %I:%M:%S %p ")
+ })
       vim.fn.jobstart(command, {
         stdout_buffered = true,
         on_stdout = append_data,
