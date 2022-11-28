@@ -15,8 +15,7 @@ export HISTFILE=~/.bash_history
 alias rm="trash-put"
 alias ll='ls -al --color --group-directories-first'
 alias ls='ls -a -t --color -h --group-directories-first'
-alias v="nvim"
-alias fd="fd . / --absolute-path --type d --hidden | fzf --preview 'tree -CL 2 {}'"
+alias v='nvim'
 alias ip='ip --color=auto'
 shopt -s autocd
 shopt -s histappend # append to history, don't overwrite it
